@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Org Chem Adventure.Plugins", "Org Chem Adventure.Plugins.csproj", "{B582C07D-5FB0-57BE-AC67-3AA06F91AC53}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Org Chem Adventure", "Org Chem Adventure.csproj", "{F47460AB-9532-8D8E-EE99-827D197A25E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Org Chem Adventure.Editor.Plugins", "Org Chem Adventure.Editor.Plugins.csproj", "{0AE4F0C4-2EBA-BD35-524E-48E425134B08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B582C07D-5FB0-57BE-AC67-3AA06F91AC53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B582C07D-5FB0-57BE-AC67-3AA06F91AC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B582C07D-5FB0-57BE-AC67-3AA06F91AC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B582C07D-5FB0-57BE-AC67-3AA06F91AC53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F47460AB-9532-8D8E-EE99-827D197A25E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F47460AB-9532-8D8E-EE99-827D197A25E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F47460AB-9532-8D8E-EE99-827D197A25E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F47460AB-9532-8D8E-EE99-827D197A25E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE4F0C4-2EBA-BD35-524E-48E425134B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE4F0C4-2EBA-BD35-524E-48E425134B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE4F0C4-2EBA-BD35-524E-48E425134B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE4F0C4-2EBA-BD35-524E-48E425134B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

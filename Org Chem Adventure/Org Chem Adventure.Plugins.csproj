@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F47460AB-9532-8D8E-EE99-827D197A25E4}</ProjectGuid>
+    <ProjectGuid>{B582C07D-5FB0-57BE-AC67-3AA06F91AC53}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.1f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -78,13 +78,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Org Chem Adventure.Plugins.csproj">
-      <Project>{B582C07D-5FB0-57BE-AC67-3AA06F91AC53}</Project>
-      <Name>Org Chem Adventure.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Plugins\Ink\Example\Scripts\BasicInkExample.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\CallStack.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Choice.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\ChoicePoint.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Container.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\ControlCommand.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\DebugMetadata.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Divert.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Glue.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\INamedContent.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\InkList.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\JsonSerialisation.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\ListDefinition.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\ListDefinitionsOrigin.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\NativeFunctionCall.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Object.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Path.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\PushPop.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\SimpleJson.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Story.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\StoryException.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\StoryState.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\StringJoinExtension.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Tag.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Value.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\VariableAssignment.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\VariableReference.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\VariablesState.cs" />
+    <Compile Include="Assets\Plugins\Ink\InkRuntime\Void.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Ink\Resources\InkDefaultTemplate.txt" />
