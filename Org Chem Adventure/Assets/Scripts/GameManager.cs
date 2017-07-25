@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
+    public Intro intro;
 
     private Player player;
     private int ProgressIndex;
@@ -19,5 +20,8 @@ public class GameManager : MonoBehaviour {
     {
         player = GetComponent<Player>();
         ProgressIndex = player.SaveData.ProgressIndex;
+
+        if (ProgressIndex == 0)
+            intro.PlayIntro();
     }
 }
