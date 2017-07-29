@@ -17,8 +17,6 @@ public class Player : MonoBehaviour {
     {
         Load();
 
-        SaveData = new Save();
-
         if (!PlayerDataExist())
             NewSave();
     }
@@ -30,7 +28,8 @@ public class Player : MonoBehaviour {
 
         Save save = new Save();
 
-        Debug.Log("TODO: Populate Save file");
+        save.ProgressIndex = GameManager.Instance.GetProgress();
+        Debug.Log("TODO: Populate Save file" );
 
         formatter.Serialize(file, save);
         file.Close();
@@ -40,6 +39,8 @@ public class Player : MonoBehaviour {
 
     private void NewSave()
     {
+        SaveData = new Save();
+
         SaveData.ProgressIndex = 0;
         SaveData.Currency = 0;
 

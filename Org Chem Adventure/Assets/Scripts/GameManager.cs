@@ -18,10 +18,26 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        player = GetComponent<Player>();
-        ProgressIndex = player.SaveData.ProgressIndex;
-
+        Initialize();
         if (ProgressIndex == 0)
             intro.PlayIntro();
+    }
+
+
+    public void IncrementProgress()
+    {
+        ProgressIndex++;
+    }
+
+    public int GetProgress()
+    {
+        return ProgressIndex;
+    }
+
+    private void Initialize()
+    {
+        player = GetComponent<Player>();
+        player.Init();
+        ProgressIndex = player.SaveData.ProgressIndex;
     }
 }

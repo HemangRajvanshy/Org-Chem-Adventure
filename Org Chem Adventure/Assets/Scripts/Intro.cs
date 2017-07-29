@@ -11,6 +11,13 @@ public class Intro : MonoBehaviour {
 
     private IEnumerator DoIntro()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(2f);
+
+        Debug.Log("DO INTRO");
+
+        yield return new WaitForSeconds(2f);
+        Debug.Log("DID INTRO");
+        //Complete
+        GameManager.Instance.IncrementProgress();
     }
 }
