@@ -11,6 +11,9 @@ public class Game : MonoBehaviour
     // The ink runtime story object
     private Story story;
 
+    public ContentView ContentPrefab;
+
+    public Transform contentParent;
 
     public void StartGame()
     {
