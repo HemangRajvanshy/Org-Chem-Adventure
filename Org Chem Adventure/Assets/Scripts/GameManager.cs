@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
     public Intro intro;
+    public Game game;
 
     private Player player;
     private int ProgressIndex;
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour {
         Initialize();
         if (ProgressIndex == 0)
             intro.PlayIntro();
+        else
+            game.StartGame();
     }
 
 
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour {
     {
         return ProgressIndex;
     }
+
 
     private void Initialize()
     {
