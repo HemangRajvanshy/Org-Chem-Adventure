@@ -1,3 +1,27 @@
+VAR money = 0
+
+LIST Expression = neutral, angry, happy, sad
+VAR curExp = neutral
+
+-> 1Knot
+
+=== 1Knot === 
+
+-    Dear Mom,
+    Today I embark on a new adventure. 
+     My journey through the various worlds has finally brought me to the most dangerous and mysterious land, to the magical land of organic chemistry.I know how much this worries you, how you have always told me to stay away, what this land did to dad.
+        * * ...
+        But believe me, I will be fine. If the ‘bad happens’ I will use all the tricks at my disposal, everything that I have learned in my past few years of travel. I will be back, very soon. 
+Most of all, I will find out what fate met dad in these lands. What happened that he could never come back.
+In the meantime, take care.
+
+
+
+-> END
+
+
+
+=== example ===
 - 	They are keeping me waiting. 
 		*	Hut 14[]. The door was locked after I sat down. 
 		I don't even have a pen to do any work. There's a copy of the morning's intercept in my pocket, but staring at the jumbled letters will only drive me mad. 

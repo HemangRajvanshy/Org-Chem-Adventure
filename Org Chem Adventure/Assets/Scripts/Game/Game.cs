@@ -31,7 +31,22 @@ public class Game : MonoBehaviour
 
     IEnumerator ContinueStory()
     {
-        yield return new WaitForEndOfFrame();
+        if(story.canContinue)
+        {
+            while(story.canContinue)
+            {
+                string content = story.Continue().Trim();
+                ContentView contentView = CreateContentView(content);
+            }
+        }
+        yield return null;
+    }
 
+    ContentView CreateContentView(string content)
+    {
+        ContentView contentView = Instantiate(ContentPrefab);
+        contentView.transform.SetParent(contentParent, false);
+        contentView.LayoutText(content);
+        return contentView;
     }
 }
