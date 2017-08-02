@@ -26,6 +26,7 @@ public class Game : MonoBehaviour
             enabled = false;
         }
         story = new Story(storyJSON.text);
+        story.ChoosePathString(GameManager.Instance.GetProgress() + "Knot");
         StartCoroutine(ContinueStory());
     }
 

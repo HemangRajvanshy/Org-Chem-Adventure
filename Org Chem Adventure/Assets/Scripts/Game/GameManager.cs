@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public void IncrementProgress()
     {
         ProgressIndex++;
+        player.SaveGame();
     }
 
     public int GetProgress()

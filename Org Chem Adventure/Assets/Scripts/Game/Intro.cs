@@ -25,7 +25,7 @@ public class Intro : MonoBehaviour {
         Debug.Log("DID INTRO");
         //Complete
         GameManager.Instance.IncrementProgress();
-
+        GameManager.Instance.game.StartGame(); //intro over, game start
         group.gameObject.SetActive(false); 
     }
 }
