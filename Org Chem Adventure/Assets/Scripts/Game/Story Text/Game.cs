@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     private Story story;
 
     public ContentView ContentPrefab;
+    public ChoiceGroupView ChoiceGroupPrefab;
 
     public Transform contentParent;
 
@@ -34,10 +35,23 @@ public class Game : MonoBehaviour
     {
         if(story.canContinue)
         {
-            while(story.canContinue)
+            ChoiceGroupView choiceView = null;
+            //ChevronButtonView chevronView = null;
+            while (story.canContinue)
             {
                 string content = story.Continue().Trim();
                 ContentView contentView = CreateContentView(content);
+                if (!story.canContinue)
+                {
+                    if (story.currentChoices.Count > 0)
+                    {
+                        choiceView = CreateChoiceGroupView(story.currentChoices);
+                    }
+                    //else
+                    //{
+                    //    chevronView = CreateChevronView();
+                    //}
+                }
             }
         }
         yield return null;
@@ -49,5 +63,11 @@ public class Game : MonoBehaviour
         contentView.transform.SetParent(contentParent, false);
         contentView.LayoutText(content);
         return contentView;
+    }
+
+    ChoiceGroupView CreateChoiceGroupView(IList<Choice> Choices)
+    {
+        ChoiceGroupView choiceGroupView = Instantiate(ChoiceGroupPrefab);
+        return choiceGroupView;
     }
 }
