@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
 
     public ContentView ContentPrefab;
     public ChoiceGroupView ChoiceGroupPrefab;
+    public ChoiceGroupManager choiceGroupManager;
 
     public Transform contentParent;
 
@@ -68,6 +69,9 @@ public class Game : MonoBehaviour
     ChoiceGroupView CreateChoiceGroupView(IList<Choice> Choices)
     {
         ChoiceGroupView choiceGroupView = Instantiate(ChoiceGroupPrefab);
+        choiceGroupView.transform.SetParent(choiceGroupManager.transform, false);
+        choiceGroupView.LayoutChoices(Choices);
+        //CreateEmptyView(choiceGroupView.rectTransform.sizeDelta.y);
         return choiceGroupView;
     }
 }

@@ -90,7 +90,9 @@
     <Compile Include="Assets\Scripts\Game\InkManager.cs" />
     <Compile Include="Assets\Scripts\Game\Intro.cs" />
     <Compile Include="Assets\Scripts\Game\Player.cs" />
+    <Compile Include="Assets\Scripts\Game\Story Text\ChoiceGroupManager.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ChoiceGroupView.cs" />
+    <Compile Include="Assets\Scripts\Game\Story Text\ChoiceView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ContentManager.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ContentView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\Game.cs" />
