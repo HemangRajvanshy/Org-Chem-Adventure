@@ -30,11 +30,25 @@ public class ChoiceGroupView : MonoBehaviour {
         {
             LayoutChoice(choice);
         }
-        verticalLayoutGroup.enabled = false;
-        contentSizeFitter.enabled = false;
+        //verticalLayoutGroup.enabled = false;
+        //contentSizeFitter.enabled = false;
         foreach (ChoiceView choiceView in choiceViews)
         {
             choiceView.rectTransform.sizeDelta = new Vector2(choiceView.rectTransform.sizeDelta.x, choiceView.rectTransform.sizeDelta.y + verticalLayoutGroup.spacing * 0.5f);
+        }
+    }
+
+    public void RenderChoices()
+    {
+        StartCoroutine(RenderChoicesDelayed());
+    }
+
+    private IEnumerator RenderChoicesDelayed()
+    {
+        foreach (ChoiceView choiceView in choiceViews)
+        {
+            choiceView.Render();
+            yield return new WaitForSeconds(0.4f);
         }
     }
 
@@ -42,11 +56,48 @@ public class ChoiceGroupView : MonoBehaviour {
     {
         ChoiceView choiceView = Instantiate(choiceViewPrefab);
         choiceView.transform.SetParent(transform, false);
-        //choiceView.choiceGroupView = this;
-        //choiceView.LayoutText(choice);
+        choiceView.choiceGroupView = this;
+        choiceView.LayoutText(choice);
         choiceViews.Add(choiceView);
         return choiceView;
     }
 
+
+    public void MakeChoice(Choice choice)
+    {
+        StopAllCoroutines();
+        StartCoroutine(FadeOutAndContinue(choice));
+    }
+
+    IEnumerator FadeOutAndContinue(Choice choice)
+    {
+        foreach (ChoiceView choiceView in choiceViews)
+        {
+            choiceView.StopAllCoroutines();
+            if (choiceView.choice == choice)
+                choiceView.button.interactable = false;
+            else
+                choiceView.button.enabled = false;
+        }
+        /*foreach (ChoiceView choiceView in choiceViews)
+        {
+            if (choiceView.choice != choice)
+                StartCoroutine(choiceView.FadeOut(0.4f));
+        }
+        if (choiceViews.Count > 1)
+            yield return new WaitForSeconds(0.25f);
+        foreach (ChoiceView choiceView in choiceViews)
+        {
+            if (choiceView.choice == choice)
+                yield return StartCoroutine(choiceView.FadeOut(0.6f));
+        }*/
+        foreach (ChoiceView choiceView in choiceViews)
+        {
+            Destroy(choiceView.gameObject);
+        }
+        yield return new WaitForSeconds(0.25f);
+        Destroy(gameObject);
+        GameManager.Instance.game.ChooseChoiceIndex(choice.index);
+    }
 
 }

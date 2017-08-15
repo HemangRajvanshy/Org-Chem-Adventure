@@ -54,8 +54,27 @@ public class Game : MonoBehaviour
                     //}
                 }
             }
+            if (story.currentChoices.Count > 0)
+            {
+                yield return new WaitForSeconds(1f);
+                choiceView.RenderChoices();
+                yield return new WaitForSeconds(0.5f);
+            }
+            else
+            {
+                //chevronView.Render();
+                //yield return new WaitForSeconds(2);
+            }
         }
         yield return null;
+    }
+
+    public void ChooseChoiceIndex(int choiceIndex)
+    {
+       // DestroyEmpties();
+        story.ChooseChoiceIndex(choiceIndex);
+        //hasMadeAChoice = true;
+        StartCoroutine(ContinueStory());
     }
 
     ContentView CreateContentView(string content)
