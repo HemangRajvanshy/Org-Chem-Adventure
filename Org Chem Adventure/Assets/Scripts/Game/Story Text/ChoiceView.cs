@@ -39,6 +39,10 @@ public class ChoiceView : MonoBehaviour {
         }
     }
 
+    private void Awake()
+    {
+        button.interactable = false;
+    }
 
     public void LayoutText(Choice choice)
     {

@@ -29,6 +29,9 @@ public class Game : MonoBehaviour
         }
         story = new Story(storyJSON.text);
         story.ChoosePathString(GameManager.Instance.GetProgress() + "Knot");
+
+        story.BindExternalFunction("IncrementProgress", () => GameManager.Instance.IncrementProgress());
+
         StartCoroutine(ContinueStory());
     }
 
@@ -81,8 +84,15 @@ public class Game : MonoBehaviour
     {
         ContentView contentView = Instantiate(ContentPrefab);
         contentView.transform.SetParent(contentParent, false);
+        content = ParseContent(content);
         contentView.LayoutText(content);
         return contentView;
+    }
+
+    string ParseContent(string content)
+    {
+        content = content.Replace("<br>", "\n");
+        return content;
     }
 
     ChoiceGroupView CreateChoiceGroupView(IList<Choice> Choices)

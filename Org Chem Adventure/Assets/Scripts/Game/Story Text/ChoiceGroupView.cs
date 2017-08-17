@@ -48,7 +48,8 @@ public class ChoiceGroupView : MonoBehaviour {
         foreach (ChoiceView choiceView in choiceViews)
         {
             choiceView.Render();
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForEndOfFrame();
+            //yield return new WaitForSeconds(0.4f);
         }
     }
 
