@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     private Story story;
 
     public ContentView ContentPrefab;
+    public ContentManager contentManager;
     public ChoiceGroupView ChoiceGroupPrefab;
     public ChoiceGroupManager choiceGroupManager;
 
@@ -27,24 +28,37 @@ public class Game : MonoBehaviour
             Debug.LogWarning("Drag a valid story JSON file into the StoryReader component.");
             enabled = false;
         }
+
         story = new Story(storyJSON.text);
+
+        if (GameManager.Instance.GetProgress() == 0)
+            GameManager.Instance.DoIntro();
+        else
+            ContinueGame();
+
+        //StartCoroutine(ContinueStory());
+    }
+
+    public void ContinueGame() //Called by progress index update.
+    {
         story.ChoosePathString(GameManager.Instance.GetProgress() + "Knot");
-
-        story.BindExternalFunction("IncrementProgress", () => GameManager.Instance.IncrementProgress());
-
-        StartCoroutine(ContinueStory());
+        EvaluateTags(GameManager.Instance.GetProgress() + "Knot");
+        StartCoroutine(ContinueStory()); 
     }
 
     IEnumerator ContinueStory()
     {
-        if(story.canContinue)
-        {
+        if (story.canContinue)
+        { 
             ChoiceGroupView choiceView = null;
             //ChevronButtonView chevronView = null;
             while (story.canContinue)
             {
                 string content = story.Continue().Trim();
-                ContentView contentView = CreateContentView(content);
+                content = ParseContent(content);
+                if (content != string.Empty)
+                    CreateContentView(content);
+
                 if (!story.canContinue)
                 {
                     if (story.currentChoices.Count > 0)
@@ -84,15 +98,33 @@ public class Game : MonoBehaviour
     {
         ContentView contentView = Instantiate(ContentPrefab);
         contentView.transform.SetParent(contentParent, false);
-        content = ParseContent(content);
         contentView.LayoutText(content);
         return contentView;
     }
 
     string ParseContent(string content)
     {
-        content = content.Replace("<br>", "\n");
+        if(content.Contains("__"))
+        {
+            if (content.Contains("IncrementProgress"))
+                GameManager.Instance.IncrementProgress();
+            content = string.Empty;
+        }
+        else
+        {
+            content = content.Replace("<br>", "\n");
+        }
         return content;
+    }
+
+    void EvaluateTags(string location)
+    {
+        List<string> tags = story.TagsForContentAtPath(location);
+        if (tags != null)
+        {
+            if (tags.Exists(t => t.Contains("clear")))
+                contentManager.NewWindow();
+        }       
     }
 
     ChoiceGroupView CreateChoiceGroupView(IList<Choice> Choices)

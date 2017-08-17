@@ -8,13 +8,22 @@ public class ContentManager : MonoBehaviour {
     public VerticalLayoutGroup layoutGroup;
     public ScrollRect scroll;
 
+    private GameObject ContentContainer;
     private float lastLayoutGroupSize=0f;
     [SerializeField]
     private float offset = 50;
 
     void Start()
     {
-        Debug.Log("Control the deletion and addition of content blocks from here."); 
+        ContentContainer = layoutGroup.gameObject;
+    }
+
+    public void NewWindow()
+    {
+        foreach (Transform child in ContentContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
     }
 
     private void LateUpdate()
@@ -25,7 +34,7 @@ public class ContentManager : MonoBehaviour {
     void UpdateAutoScroll()
     {
         float newLayoutGroupSize = ((RectTransform)layoutGroup.transform).sizeDelta.y;
-        if (newLayoutGroupSize > lastLayoutGroupSize)
+        if (newLayoutGroupSize != lastLayoutGroupSize)
         {
             var rect = (RectTransform)transform;
             rect.sizeDelta = new Vector2(rect.sizeDelta.x, newLayoutGroupSize);

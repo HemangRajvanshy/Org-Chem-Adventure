@@ -17,15 +17,15 @@ public class Intro : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         group.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
-        Debug.Log("DO INTRO");
+        //Debug.Log("DO INTRO");
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("DID INTRO");
         //Complete
         GameManager.Instance.IncrementProgress();
-        GameManager.Instance.game.StartGame(); //intro over, game start
+        //GameManager.Instance.game.StartGame(); //intro over, game start
         group.gameObject.SetActive(false); 
     }
 }

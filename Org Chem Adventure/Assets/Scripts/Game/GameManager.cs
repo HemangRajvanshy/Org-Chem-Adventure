@@ -20,10 +20,7 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         Initialize();
-        if (ProgressIndex == 0)
-            intro.PlayIntro();
-        else
-            game.StartGame();
+        game.StartGame();
     }
 
 
@@ -31,6 +28,7 @@ public class GameManager : MonoBehaviour {
     {
         ProgressIndex++;
         player.SaveGame();
+        game.ContinueGame();
     }
 
     public int GetProgress()
@@ -38,6 +36,10 @@ public class GameManager : MonoBehaviour {
         return ProgressIndex;
     }
 
+    public void DoIntro()
+    {
+        intro.PlayIntro();
+    }
 
     private void Initialize()
     {
