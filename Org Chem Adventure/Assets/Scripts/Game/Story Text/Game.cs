@@ -18,6 +18,8 @@ public class Game : MonoBehaviour
 
     public Transform contentParent;
 
+    private bool StoryRunning;
+
     public void StartGame()
     {
         //Enable things.
@@ -43,11 +45,13 @@ public class Game : MonoBehaviour
     {
         story.ChoosePathString(GameManager.Instance.GetProgress() + "Knot");
         EvaluateTags(GameManager.Instance.GetProgress() + "Knot");
-        StartCoroutine(ContinueStory()); 
+        if(!StoryRunning)
+            StartCoroutine(ContinueStory()); 
     }
 
     IEnumerator ContinueStory()
     {
+        StoryRunning = true;
         if (story.canContinue)
         { 
             ChoiceGroupView choiceView = null;
@@ -83,6 +87,7 @@ public class Game : MonoBehaviour
                 //yield return new WaitForSeconds(2);
             }
         }
+        StoryRunning = false;
         yield return null;
     }
 
@@ -129,6 +134,7 @@ public class Game : MonoBehaviour
 
     ChoiceGroupView CreateChoiceGroupView(IList<Choice> Choices)
     {
+        Debug.Log("Called");
         ChoiceGroupView choiceGroupView = Instantiate(ChoiceGroupPrefab);
         choiceGroupView.transform.SetParent(choiceGroupManager.transform, false);
         choiceGroupView.LayoutChoices(Choices);

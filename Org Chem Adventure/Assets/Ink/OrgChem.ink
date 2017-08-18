@@ -30,6 +30,7 @@ VAR DEBUG = false
         -   *   [Send]__IncrementProgress()
                 {DEBUG: 
                     ->2Knot 
+                - else: ->END
                 }
 
 === 2Knot === 
@@ -52,6 +53,7 @@ VAR DEBUG = false
     -   __IncrementProgress()
         {DEBUG: 
             ->3Knot
+        - else: -> END
         }
         
 === 3Knot === 

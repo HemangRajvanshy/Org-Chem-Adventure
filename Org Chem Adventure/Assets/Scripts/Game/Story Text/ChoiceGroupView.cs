@@ -96,6 +96,7 @@ public class ChoiceGroupView : MonoBehaviour {
         {
             Destroy(choiceView.gameObject);
         }
+
         yield return new WaitForSeconds(0.25f);
         Destroy(gameObject);
         GameManager.Instance.game.ChooseChoiceIndex(choice.index);
