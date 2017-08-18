@@ -48,8 +48,14 @@ public class ChoiceView : MonoBehaviour {
     {
         this.choice = choice;
         this.GetComponent<Text>().text = choice.text.Trim();
-       // Canvas.ForceUpdateCanvases();
-        layoutElement.preferredHeight = 20;
+        // Canvas.ForceUpdateCanvases();
+
+       /* TextGenerator generator = new TextGenerator();
+        TextGenerationSettings settings = text.GetGenerationSettings(new Vector2(rectTransform.sizeDelta.x, 0));
+        settings.updateBounds = true;
+        settings.scaleFactor = 1;
+        generator.Populate(choice.text.Trim(), settings);
+        layoutElement.preferredHeight = generator.rectExtents.height;*/
     }
 
     public void Render()

@@ -15,11 +15,11 @@ public class GameManager : MonoBehaviour {
     {
         if (!Instance)
             Instance = this;
+        Initialize();
     }
 
     void Start()
     {
-        Initialize();
         game.StartGame();
     }
 
@@ -46,5 +46,12 @@ public class GameManager : MonoBehaviour {
         player = GetComponent<Player>();
         player.Init();
         ProgressIndex = player.SaveData.ProgressIndex;
+    }
+
+    // DEBUG
+    public void SetProgress(int index)
+    {
+        ProgressIndex = index;
+        player.SaveGame();
     }
 }

@@ -8,11 +8,20 @@ public class MasterTest : MonoBehaviour
 {
 #if UNITY_EDITOR
     public bool ClearSaveOnPlay = false;
+    public bool JumpToKnot = false;
+    public int Knot;
 
     void Awake()
     {
         if (ClearSaveOnPlay)
-            File.Delete(Application.persistentDataPath + "/game.dat");     
+            File.Delete(Application.persistentDataPath + "/game.dat");   
+    }
+    void Start()
+    {
+        if (JumpToKnot)
+        {
+            GameManager.Instance.SetProgress(Knot);
+        }
     }
 
     public Image test;
