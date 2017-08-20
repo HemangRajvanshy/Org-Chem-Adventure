@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Debug\MasterTest.cs" />
+    <Compile Include="Assets\Scripts\Game\AvatarManager.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game\InkManager.cs" />
     <Compile Include="Assets\Scripts\Game\Intro.cs" />

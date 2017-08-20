@@ -1,12 +1,14 @@
 VAR money = 0
 
-LIST Expression = neutral, angry, happy, sad
-
+LIST Expressio = neutral, happy, confused
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
+VAR Expression = neutral
 VAR DEBUG = false
 {DEBUG:
 	IN DEBUG MODE!
-	->1Knot
+	* [1Knot] -> 1Knot
+	* [3Knot] -> 3Knot
+	* [5Knot] -> 5Knot
 - else:
 	// First diversion: where do we begin?
  nonnono
@@ -57,7 +59,7 @@ VAR DEBUG = false
         }
         
 === 3Knot === 
-//
+// Into the land
     -   I crossed the boundary with mixed feelings and was at once take aback by the differences. It not only looked different, but also felt different. I was greeted with a board which read ‘Org Chem Land’ with letters appearing as if they were bond line structures.
     -   (opts)
     *   (look) [Look at the surroundings]
@@ -68,6 +70,92 @@ VAR DEBUG = false
         {not look: -> opts}
 
     -   Dad’s map felt heavy in my pocket. I started walking along the rivulet and wondered if my dad had a similar experience. It had only been 30 minutes since I started walking, when I came across what looked like a little shop. It looked desolate, but I was surprised to find someone inside. 
+    
+    -   __IncrementProgress()
+        {DEBUG: 
+            ->4Knot
+        - else: -> END
+        }
+=== 4Knot === 
+//Nomenclature thing, convo with shopkeeper.
+    -   "Ah, a traveller, not something you see very often these days. What can I help you with?"
+    -   (opts)
+    *   (town) "How far is the next town?"[], I asked.
+        "About a day on foot"
+        {not Greg: -> opts}
+    *   (Greg) "Do you know about someone going by the name of Greg Minerva?"
+        "...Uhm, I feel like I have heard that name somewhere before. I don’t quite remember though. A lot of travellers come here in search of people, or at least they used to. You should ask the chief at the next town about it."
+        {not town: -> opts}
+        
+    -   "Did you bring your dehydrating agents?", the shopkeeper asked.
+    *   "No" 
+    "Well, you are in luck. I just got my stock of sulfuric acid yesterday."
+        * * "Sulfuric Acid!?"
+    *   "What dehydrating agents?"
+    
+    -   __IncrementProgress()
+        {DEBUG: 
+            ->5Knot
+        - else: -> END
+        }
 
+=== 5Knot ===
+//Acid Dehydration 
+    -   "Dehydrating agents. That’s what the few of us living here use to make water."
+        "Make water? But isn’t there a rivulet…"
+        "Filled with propanol, that’s what we make the water out of. The reaction is pretty simple, it goes something like this” # RXN1
+        
+    -   “You can learn more about it later on.”, he said.
+        I gave him a confused look, what about the reaction temperature? The yield? I knew the propene produced was volatile and would escape as soon as the reaction was over but the acid? I had so many questions that all I managed to say was, <>
+        
+    *   "What about the sulphuric acid?"
+    *   "What about the yield?"
+    *   "What about the reaction temperature?"
+    
+    -   "Well, that’s a good question. Truth be told, I do not know. It works though, and that’s what I have been drinking for all my life. I think I should tell you, in here, chemical reactions are not the same. All you need to do is to have the right ingredients and some imagination and you can make almost anything you want." 
 
+        Bending down, "You’ll know once you try it".
+        
+        "That’d be 10 electrons", he said as he brought out a bottle.
+
+    *   ["...."]
+    -   "...you don’t have any electrons on you, do you? Well...”, he said with a grin.
+        He continued, "I was about to go looking for some raw material I needed for making rations”
+        "If you go over there” he said pointing to an overgrown patch of grass across the river
+        "You will find a bunch of chemicals, find me some ethanoic acid and I will pay you for the work.”
+    -   __IncrementProgress()
+        {DEBUG: 
+            ->6Knot
+        - else: -> END
+        }
+        
+=== 6Knot ===
+    -   Baffled for a second time in such a short period of time, I walked towards the patch not knowing what to expect. Meth, Eth, and Prop were suffixes used to indicate one, two and three carbons. I remembered that much from school. 
+    -   As I got closer to the patch, I realized what I had mistaken for overgrown grass was not grass, but bond line chemicals sticking out of the ground! They looked somewhat similar, but they were not the same. Ethanoic Acid, what did it look like? 
+    
+    -   (ques)
+    *   RXN1IMG1
+        This is [structure name] 
+        -> wrong
+    *   RXN1IMG2
+        This is [structure name] 
+        -> wrong
+    *   RXN1IMG3
+        This is [structure name] 
+        -> wrong
+    *   RXN1IMG4
+        -> right
+        
+    = wrong
+        ~ Expression = confused
+        <>, not ethanoic acid. Try again”
+    -> ques
+    
+    = right
+        ~ Expression = happy
+    "Oh, you found it. Here” he said as he handed me the bottle and five pellets, which I figured were electrons.
+    -> cont
+  
+    = cont
+      I made my way to the next town, only stopping to make some water in between. It worked surprisingly well, the water tasted a little different but I don’t feel any after effects. The town came into view just as it was starting to get dark. I made my way with some anticipation.
 -> END

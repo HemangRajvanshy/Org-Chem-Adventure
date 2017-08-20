@@ -15,7 +15,7 @@ public class Game : MonoBehaviour
     public ContentManager contentManager;
     public ChoiceGroupView ChoiceGroupPrefab;
     public ChoiceGroupManager choiceGroupManager;
-
+    public AvatarManager avatar;
     public Transform contentParent;
 
     private bool StoryRunning;
@@ -77,7 +77,7 @@ public class Game : MonoBehaviour
             }
             if (story.currentChoices.Count > 0)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
                 choiceView.RenderChoices();
                 yield return new WaitForSeconds(0.5f);
             }
@@ -101,6 +101,7 @@ public class Game : MonoBehaviour
 
     ContentView CreateContentView(string content)
     {
+        avatar.UpdateExpression(story);
         ContentView contentView = Instantiate(ContentPrefab);
         contentView.transform.SetParent(contentParent, false);
         contentView.LayoutText(content);
@@ -134,7 +135,6 @@ public class Game : MonoBehaviour
 
     ChoiceGroupView CreateChoiceGroupView(IList<Choice> Choices)
     {
-        Debug.Log("Called");
         ChoiceGroupView choiceGroupView = Instantiate(ChoiceGroupPrefab);
         choiceGroupView.transform.SetParent(choiceGroupManager.transform, false);
         choiceGroupView.LayoutChoices(Choices);
