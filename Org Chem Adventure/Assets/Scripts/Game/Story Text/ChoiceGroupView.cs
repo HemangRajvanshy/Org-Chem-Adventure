@@ -8,6 +8,7 @@ public class ChoiceGroupView : MonoBehaviour {
 
     public List<ChoiceView> choiceViews;
     public ChoiceView choiceViewPrefab;
+    public ImageChoiceView imageChoiceViewPrefab;
 
     public VerticalLayoutGroup verticalLayoutGroup
     {
@@ -21,6 +22,13 @@ public class ChoiceGroupView : MonoBehaviour {
         get
         {
             return GetComponent<ContentSizeFitter>();
+        }
+    }
+    private ChoiceGroupManager Manager
+    {
+        get
+        {
+            return transform.parent.GetComponent<ChoiceGroupManager>();
         }
     }
 
@@ -55,10 +63,22 @@ public class ChoiceGroupView : MonoBehaviour {
 
     public ChoiceView LayoutChoice(Choice choice)
     {
-        ChoiceView choiceView = Instantiate(choiceViewPrefab);
-        choiceView.transform.SetParent(transform, false);
-        choiceView.choiceGroupView = this;
-        choiceView.LayoutText(choice);
+        ChoiceView choiceView = null;
+        string cont = choice.text.Trim();
+        if (cont.Contains("__IMG"))
+        {
+            cont = cont.Substring(5, 3);
+            Debug.Log(cont);
+            choiceView = Instantiate(imageChoiceViewPrefab);
+        }
+        else
+        {
+            choiceView = Instantiate(choiceViewPrefab);
+            choiceView.transform.SetParent(transform, false);
+            choiceView.choiceGroupView = this;
+            choiceView.LayoutText(choice);
+        }
+
         choiceViews.Add(choiceView);
         return choiceView;
     }

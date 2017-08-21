@@ -134,16 +134,16 @@ VAR DEBUG = false
     -   As I got closer to the patch, I realized what I had mistaken for overgrown grass was not grass, but bond line chemicals sticking out of the ground! They looked somewhat similar, but they were not the same. Ethanoic Acid, what did it look like? 
     
     -   (ques)
-    *   RXN1IMG1
+    *   __IMG1-1
         This is [structure name] 
         -> wrong
-    *   RXN1IMG2
+    *   __IMG1-2
         This is [structure name] 
         -> wrong
-    *   RXN1IMG3
+    *   __IMG1-3
         This is [structure name] 
         -> wrong
-    *   RXN1IMG4
+    *   __IMG1-4
         -> right
         
     = wrong

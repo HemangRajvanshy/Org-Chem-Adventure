@@ -6,6 +6,11 @@ using Ink.Runtime;
 
 public class AvatarManager : MonoBehaviour {
 
+    public Image Avatar;
+    public Sprite Neutral;
+    public Sprite Happy;
+    public Sprite Confused;
+
 
     public void Appear()
     {
@@ -14,7 +19,7 @@ public class AvatarManager : MonoBehaviour {
 
     public void UpdateExpression(Story story)
     {
-        var exp = story.variablesState["Expression"];
-        Debug.Log(exp);
+        InkList exp = (InkList)story.variablesState["Expression"];
+        Debug.Log(exp.ToString());
     }
 }

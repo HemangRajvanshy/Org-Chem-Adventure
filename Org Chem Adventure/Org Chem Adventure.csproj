@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Game\Story Text\ContentManager.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ContentView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\Game.cs" />
+    <Compile Include="Assets\Scripts\Game\Story Text\ImageChoiceView.cs" />
     <Compile Include="Assets\Scripts\Utils\Timer\Timer.cs" />
     <Compile Include="Assets\Scripts\Utils\Timer\TimerState.cs" />
     <Compile Include="Assets\Scripts\Utils\Tween\Types\Base\TypeTween.cs" />
