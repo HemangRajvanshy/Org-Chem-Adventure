@@ -135,13 +135,13 @@ VAR DEBUG = false
     
     -   (ques)
     *   __IMG1-1
-        This is [structure name] 
+        This is ethanol 
         -> wrong
     *   __IMG1-2
-        This is [structure name] 
+        This is ethanal 
         -> wrong
     *   __IMG1-3
-        This is [structure name] 
+        This is propanoic acid 
         -> wrong
     *   __IMG1-4
         -> right
@@ -157,5 +157,12 @@ VAR DEBUG = false
     -> cont
   
     = cont
-      I made my way to the next town, only stopping to make some water in between. It worked surprisingly well, the water tasted a little different but I don’t feel any after effects. The town came into view just as it was starting to get dark. I made my way with some anticipation.
+      I made my way to the next town, only stopping to make some water in between. It worked surprisingly well, the water tasted a little different but I don’t feel any after effects. The town came into view just as it was starting to get dark. I entered the town not knowing what to expect.
+      - __IncrementProgress()
+        {DEBUG: 
+            ->6Knot
+        - else: -> END
+        }
+=== 7Knot ===
+//Into the acid base town
 -> END

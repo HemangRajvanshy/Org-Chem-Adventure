@@ -4,7 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ChoiceGroupManager : MonoBehaviour {
-
-    public List<Sprite> ImageDB;
+    [SerializeField]
+    public List<ListWrapper> ImageDB;
 	
+}
+
+[System.Serializable]
+public class ListWrapper
+{
+    public List<Sprite> myList;
 }

@@ -24,7 +24,7 @@ public class ChoiceGroupView : MonoBehaviour {
             return GetComponent<ContentSizeFitter>();
         }
     }
-    private ChoiceGroupManager Manager
+    public ChoiceGroupManager Manager
     {
         get
         {
@@ -63,24 +63,27 @@ public class ChoiceGroupView : MonoBehaviour {
 
     public ChoiceView LayoutChoice(Choice choice)
     {
-        ChoiceView choiceView = null;
         string cont = choice.text.Trim();
         if (cont.Contains("__IMG"))
         {
             cont = cont.Substring(5, 3);
-            Debug.Log(cont);
-            choiceView = Instantiate(imageChoiceViewPrefab);
+            ImageChoiceView choiceView = Instantiate(imageChoiceViewPrefab);
+            choiceView.transform.SetParent(transform, false);
+            choiceView.choiceGroupView = this;
+            choiceView.SetChoice(choice);
+            choiceView.SetImage(cont);
+            choiceViews.Add(choiceView);
+            return choiceView;
         }
         else
         {
-            choiceView = Instantiate(choiceViewPrefab);
+            ChoiceView choiceView = Instantiate(choiceViewPrefab);
             choiceView.transform.SetParent(transform, false);
             choiceView.choiceGroupView = this;
             choiceView.LayoutText(choice);
+            choiceViews.Add(choiceView);
+            return choiceView;
         }
-
-        choiceViews.Add(choiceView);
-        return choiceView;
     }
 
 
