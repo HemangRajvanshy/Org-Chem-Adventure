@@ -42,7 +42,6 @@ public class Player : MonoBehaviour {
         SaveData = new Save();
 
         SaveData.ProgressIndex = 0;
-        SaveData.Currency = 0;
 
         SaveData.Music = true;
         SaveData.Sfx = true;
@@ -84,5 +83,4 @@ public class Save
     public bool Sfx;
 
     public int ProgressIndex;
-    public int Currency;
 }

@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\Debug\MasterTest.cs" />
     <Compile Include="Assets\Scripts\Game\AvatarManager.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Game\ImageScene.cs" />
+    <Compile Include="Assets\Scripts\Game\ImageSceneManager.cs" />
     <Compile Include="Assets\Scripts\Game\InkManager.cs" />
     <Compile Include="Assets\Scripts\Game\Intro.cs" />
     <Compile Include="Assets\Scripts\Game\Player.cs" />

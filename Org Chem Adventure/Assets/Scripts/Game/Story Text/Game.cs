@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using Ink.Runtime;
 using UnityEngine.UI;
 
@@ -12,11 +13,13 @@ public class Game : MonoBehaviour
     private Story story;
 
     public ContentView ContentPrefab;
-    public ContentManager contentManager;
     public ChoiceGroupView ChoiceGroupPrefab;
+    public Transform contentParent;
+
+    public ImageSceneManager imageManager;
+    public ContentManager contentManager;
     public ChoiceGroupManager choiceGroupManager;
     public AvatarManager avatar;
-    public Transform contentParent;
 
     private bool StoryRunning;
 
@@ -128,8 +131,16 @@ public class Game : MonoBehaviour
         List<string> tags = story.TagsForContentAtPath(location);
         if (tags != null)
         {
-            if (tags.Exists(t => t.Contains("clear")))
-                contentManager.NewWindow();
+            foreach(string tag in tags)
+            {
+                Debug.Log(tag);
+                if(tag.Contains("clear"))
+                    contentManager.NewWindow();
+                if (tag.Contains("Image"))
+                {
+                    imageManager.CueScene( Convert.ToInt32(tag.Substring(5, 1) + "" ) );
+                }
+            }          
         }       
     }
 
