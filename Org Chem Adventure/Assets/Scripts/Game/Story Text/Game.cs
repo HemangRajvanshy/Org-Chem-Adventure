@@ -133,7 +133,6 @@ public class Game : MonoBehaviour
         {
             foreach(string tag in tags)
             {
-                Debug.Log(tag);
                 if(tag.Contains("clear"))
                     contentManager.NewWindow();
                 if (tag.Contains("Image"))

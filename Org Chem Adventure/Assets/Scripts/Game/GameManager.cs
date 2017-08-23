@@ -6,10 +6,38 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
     public Intro intro;
+    public SettingsMenu Settings;
     public Game game;
 
     private Player player;
     private int ProgressIndex;
+
+    private bool _paused = false;
+    public bool paused
+    {
+        get
+        {
+            return _paused;
+        }
+        set
+        {
+            if (_paused == value)
+                return;
+            _paused = value;
+            Time.timeScale = _paused ? 0 : 1;
+            if (paused)
+            {
+                Settings.Show();
+                //backgroundAmbienceController.QuietMode();
+            }
+            else
+            {
+                Settings.Hide();
+                //backgroundAmbienceController.NormalMode();
+            }
+        }
+    }
+
 
     void Awake()
     {
