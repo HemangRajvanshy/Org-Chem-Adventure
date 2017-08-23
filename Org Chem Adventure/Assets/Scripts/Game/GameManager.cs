@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour {
     {
         ProgressIndex++;
         player.SaveGame();
-        game.ContinueGame();
+        StartCoroutine(game.ContinueGame(true));
     }
 
     public int GetProgress()

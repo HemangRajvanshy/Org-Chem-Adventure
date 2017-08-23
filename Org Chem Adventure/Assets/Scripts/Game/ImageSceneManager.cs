@@ -10,6 +10,10 @@ public class ImageSceneManager : MonoBehaviour
     public int S3;
     public int S4;
 
+    public GameObject PlayScreen;
+    public AvatarManager avatar;
+    public Canvas choiceCanvas;
+
     private int CurrentScene = 0;
 
     void Start()
@@ -26,11 +30,21 @@ public class ImageSceneManager : MonoBehaviour
             SetScene(CurrentScene);
     }
 
-    public void CueScene(int scenenum)
+    public float CueScene(int scenenum)
     {
         ImageScenes[CurrentScene].Disappear();
         CurrentScene = scenenum;
         ImageScenes[scenenum].Appear();
+        StartCoroutine(Display());
+        return ImageScenes[CurrentScene].time;
+    }
+
+    IEnumerator Display()
+    {
+        PlayScreen.SetActive(false);
+ 
+        yield return new WaitForSeconds(ImageScenes[CurrentScene].time);
+        PlayScreen.SetActive(true);
     }
 
     public int GetActiveScene() // Used while saving.

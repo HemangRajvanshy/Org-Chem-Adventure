@@ -21,7 +21,7 @@ public class Game : MonoBehaviour
     public ChoiceGroupManager choiceGroupManager;
     public AvatarManager avatar;
 
-    private bool StoryRunning;
+    private bool StoryRunning = false;
 
     public void StartGame()
     {
@@ -39,17 +39,26 @@ public class Game : MonoBehaviour
         if (GameManager.Instance.GetProgress() == 0)
             GameManager.Instance.DoIntro();
         else
-            ContinueGame();
+            StartCoroutine(ContinueGame(true));
 
         //StartCoroutine(ContinueStory());
     }
 
-    public void ContinueGame() //Called by progress index update.
+    public IEnumerator ContinueGame(bool progress = false) //Called by progress index update.
     {
-        story.ChoosePathString(GameManager.Instance.GetProgress() + "Knot");
-        EvaluateTags(GameManager.Instance.GetProgress() + "Knot");
-        if(!StoryRunning)
-            StartCoroutine(ContinueStory()); 
+        while(StoryRunning)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        if (progress)
+        {
+            story.ChoosePathString(GameManager.Instance.GetProgress() + "Knot");
+            StartCoroutine(EvaluateTagsAndPlay(GameManager.Instance.GetProgress() + "Knot"));
+        }
+        else
+        {
+            StartCoroutine(ContinueStory());
+        }
     }
 
     IEnumerator ContinueStory()
@@ -99,7 +108,7 @@ public class Game : MonoBehaviour
        // DestroyEmpties();
         story.ChooseChoiceIndex(choiceIndex);
         //hasMadeAChoice = true;
-        StartCoroutine(ContinueStory());
+        StartCoroutine(ContinueGame(false));
     }
 
     ContentView CreateContentView(string content)
@@ -126,7 +135,7 @@ public class Game : MonoBehaviour
         return content;
     }
 
-    void EvaluateTags(string location)
+    IEnumerator EvaluateTagsAndPlay(string location)
     {
         List<string> tags = story.TagsForContentAtPath(location);
         if (tags != null)
@@ -137,10 +146,16 @@ public class Game : MonoBehaviour
                     contentManager.NewWindow();
                 if (tag.Contains("Image"))
                 {
-                    imageManager.CueScene( Convert.ToInt32(tag.Substring(5, 1) + "" ) );
+                    float wait = imageManager.CueScene( Convert.ToInt32(tag.Substring(5, 1) + "" ) );
+                    avatar.Disappear();
+                    yield return new WaitForSeconds(wait);
+                    avatar.Appear();
                 }
             }          
-        }       
+        }
+
+        StartCoroutine(ContinueStory());
+        yield return null;
     }
 
     ChoiceGroupView CreateChoiceGroupView(IList<Choice> Choices)

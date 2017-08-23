@@ -14,7 +14,12 @@ public class AvatarManager : MonoBehaviour {
 
     public void Appear()
     {
+        gameObject.SetActive(true);
+    }
 
+    public void Disappear()
+    {
+        gameObject.SetActive(false);
     }
 
     public void UpdateExpression(Story story)
