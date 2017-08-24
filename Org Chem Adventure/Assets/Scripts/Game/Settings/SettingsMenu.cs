@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour {
+
+    public Toggle MusicToggle;
 
 	public void Show()
     {
         gameObject.SetActive(true);
+        MusicToggle.isOn = GameManager.Instance.audio.Playing();
     }
 
     public void Hide()
@@ -27,11 +31,14 @@ public class SettingsMenu : MonoBehaviour {
 
     public void Restart()
     {
-        Debug.Log("Restart Game");
+        Debug.Log("Make Confirm Dialogue");
     }
 
     public void ToggleMusic(bool val)
     {
-        Debug.Log("Music = " + val);
+        if (val)
+            GameManager.Instance.audio.PlayBGM();
+        else
+            GameManager.Instance.audio.StopBGM();
     }
 }

@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
         Save save = new Save();
 
         save.ProgressIndex = GameManager.Instance.GetProgress();
-        Debug.Log("TODO: Populate Save file" );
+        save.Music = GameManager.Instance.audio.Playing();
 
         formatter.Serialize(file, save);
         file.Close();
@@ -44,7 +44,6 @@ public class Player : MonoBehaviour {
         SaveData.ProgressIndex = 0;
 
         SaveData.Music = true;
-        SaveData.Sfx = true;
 
         BinaryFormatter formatter = new BinaryFormatter();
 
@@ -80,7 +79,6 @@ public class Player : MonoBehaviour {
 public class Save
 {
     public bool Music;
-    public bool Sfx;
 
     public int ProgressIndex;
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
+    public AudioManager audio;
     public Intro intro;
     public SettingsMenu Settings;
     public Game game;
@@ -74,6 +75,9 @@ public class GameManager : MonoBehaviour {
         player = GetComponent<Player>();
         player.Init();
         ProgressIndex = player.SaveData.ProgressIndex;
+
+        if (player.SaveData.Music) //Start the background music if player wants it.
+            audio.PlayBGM();
     }
 
     // DEBUG
