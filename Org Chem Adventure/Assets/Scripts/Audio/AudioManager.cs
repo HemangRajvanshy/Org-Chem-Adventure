@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
+    private bool Play = true;
+
     private AudioSource audioSource
     {
         get
@@ -14,17 +17,19 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM()
     {
+        Play = true;
         audioSource.Play();
     }
 
     public void StopBGM()
     {
-        audioSource.Stop();
+        Play = false;
+        audioSource.Pause();
     }
 
     public bool Playing()
     {
-        return audioSource.isPlaying;
+        return Play;
     }
 
     private void PlaySound(AudioClip audioClip, float volume = 1)

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour {
@@ -32,6 +34,12 @@ public class SettingsMenu : MonoBehaviour {
     public void Restart()
     {
         Debug.Log("Make Confirm Dialogue");
+        GameManager.Instance.paused = false;
+
+        File.Delete(Application.persistentDataPath + "/game.dat");
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Canvas.ForceUpdateCanvases();
     }
 
     public void ToggleMusic(bool val)

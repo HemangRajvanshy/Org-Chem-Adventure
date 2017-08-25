@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
 
     private void Initialize()
     {
-        player = GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         player.Init();
         ProgressIndex = player.SaveData.ProgressIndex;
 

@@ -7,8 +7,24 @@ public class Player : MonoBehaviour {
 
 	public Save SaveData { get; private set; }
 
+    private static Player _instance;
+
+    void Awake() //Make it a singleton
+    {
+        //if we don't have an [_instance] set yet
+        if (!_instance)
+            _instance = this;
+        //otherwise, if we do, kill this thing
+        else
+            Destroy(this.gameObject);
+
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void OnDestroy()
     {
+        Debug.Log("Destroyed");
         SaveGame();
     }
 
