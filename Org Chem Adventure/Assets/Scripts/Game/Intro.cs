@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Intro : MonoBehaviour {
 
+    public Animator anim;
     public CanvasGroup group;
+    public float wait = 2.0f;
 
 	public void PlayIntro()
     {
@@ -17,15 +19,14 @@ public class Intro : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         group.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(wait);
 
-        //Debug.Log("DO INTRO");
-
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("DID INTRO");
         //Complete
+        anim.SetTrigger("GoOut");
+        //yield return new WaitForSeconds(wait);
+
         GameManager.Instance.IncrementProgress();
         //GameManager.Instance.game.StartGame(); //intro over, game start
-        group.gameObject.SetActive(false); 
+        //group.gameObject.SetActive(false); 
     }
 }
