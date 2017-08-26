@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class SettingsButton : MonoBehaviour {
 
+    public SettingsMenu settings;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Instance.paused = !GameManager.Instance.paused;
+            if (!settings.RestartPanel.activeSelf)
+                GameManager.Instance.paused = !GameManager.Instance.paused;
+            else
+                settings.CancelRestart();
         }
     }
 

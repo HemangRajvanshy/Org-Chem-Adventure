@@ -8,10 +8,14 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour {
 
     public Toggle MusicToggle;
+    public GameObject SettingPanel;
+    public GameObject RestartPanel;
 
 	public void Show()
     {
         gameObject.SetActive(true);
+        SettingPanel.SetActive(true);
+        RestartPanel.SetActive(false);
         MusicToggle.isOn = GameManager.Instance.audio.Playing();
     }
 
@@ -33,13 +37,24 @@ public class SettingsMenu : MonoBehaviour {
 
     public void Restart()
     {
-        Debug.Log("Make Confirm Dialogue");
+        SettingPanel.SetActive(false);
+        RestartPanel.SetActive(true);
+    }
+
+    public void ConfirmRestart()
+    {
         GameManager.Instance.paused = false;
 
         File.Delete(Application.persistentDataPath + "/game.dat");
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Canvas.ForceUpdateCanvases();
+    }
+
+    public void CancelRestart()
+    {
+        SettingPanel.SetActive(true);
+        RestartPanel.SetActive(false);
     }
 
     public void ToggleMusic(bool val)
