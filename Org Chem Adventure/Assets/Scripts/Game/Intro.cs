@@ -24,9 +24,10 @@ public class Intro : MonoBehaviour {
         //Complete
         anim.SetTrigger("GoOut");
         //yield return new WaitForSeconds(wait);
-
+        while (anim.GetAnimatorTransitionInfo(0).IsName("GoOut"))
+            yield return new WaitForSeconds(0.1f);
         GameManager.Instance.IncrementProgress();
         //GameManager.Instance.game.StartGame(); //intro over, game start
-        //group.gameObject.SetActive(false); 
+        group.gameObject.SetActive(false); 
     }
 }

@@ -25,6 +25,14 @@ public class AvatarManager : MonoBehaviour {
     public void UpdateExpression(Story story)
     {
         InkList exp = (InkList)story.variablesState["Expression"];
-        Debug.Log(exp.ToString());
+        string val = exp.ToString();
+        if (val == "neutral")
+            Avatar.sprite = Neutral;
+        else if (val == "happy")
+            Avatar.sprite = Happy;
+        else
+        {
+            Debug.Log(val + " Expression not found");
+        }
     }
 }

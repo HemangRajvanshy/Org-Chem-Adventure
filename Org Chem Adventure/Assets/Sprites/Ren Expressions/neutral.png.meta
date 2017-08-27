@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 69b33b6bc4f304c44942ab03dc7fe1d8
-timeCreated: 1503768703
+guid: e1f2008718ceaf84e879656f48f52a24
+timeCreated: 1503849193
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: happy_0
+    21300000: neutral_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -28,7 +28,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: -1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -40,7 +40,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 48, z: 83, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -87,13 +87,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: happy_0
+      name: neutral_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 48
-        width: 328
-        height: 436
+        x: 102
+        y: 43
+        width: 329
+        height: 434
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
