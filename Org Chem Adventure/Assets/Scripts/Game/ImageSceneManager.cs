@@ -36,7 +36,7 @@ public class ImageSceneManager : MonoBehaviour
         CurrentScene = scenenum;
         ImageScenes[scenenum].Appear();
         StartCoroutine(Display());
-        return ImageScenes[CurrentScene].time;
+        return ImageScenes[CurrentScene].time + 1.5f; //TODO change for different image/situations
     }
 
     IEnumerator Display()
@@ -45,6 +45,9 @@ public class ImageSceneManager : MonoBehaviour
  
         yield return new WaitForSeconds(ImageScenes[CurrentScene].time);
         PlayScreen.SetActive(true);
+        PlayScreen.GetComponent<Animator>().SetTrigger("Open");
+        while (PlayScreen.GetComponent<Animator>().GetAnimatorTransitionInfo(0).IsName("Base"))
+            yield return new WaitForSeconds(0.1f);
     }
 
     public int GetActiveScene() // Used while saving.

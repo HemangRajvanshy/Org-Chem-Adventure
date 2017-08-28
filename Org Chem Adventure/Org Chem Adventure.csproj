@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Game\Player.cs" />
     <Compile Include="Assets\Scripts\Game\Settings\SettingsButton.cs" />
     <Compile Include="Assets\Scripts\Game\Settings\SettingsMenu.cs" />
+    <Compile Include="Assets\Scripts\Game\Standardview.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ChoiceGroupManager.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ChoiceGroupView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ChoiceView.cs" />

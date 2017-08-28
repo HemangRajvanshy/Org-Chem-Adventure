@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
         Save save = new Save();
 
         save.ProgressIndex = GameManager.Instance.GetProgress();
-        save.Music = GameManager.Instance.audio.Playing();
+        save.Music = GameManager.Instance.Audio.Playing();
 
         formatter.Serialize(file, save);
         file.Close();

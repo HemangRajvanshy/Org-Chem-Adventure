@@ -24,8 +24,15 @@ public class Intro : MonoBehaviour {
         //Complete
         anim.SetTrigger("GoOut");
         //yield return new WaitForSeconds(wait);
-        while (anim.GetAnimatorTransitionInfo(0).IsName("GoOut"))
+
+        //Debug.Log(anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
+        while (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            //Debug.Log("Fading");
             yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(0.3f);
+
         GameManager.Instance.IncrementProgress();
         //GameManager.Instance.game.StartGame(); //intro over, game start
         group.gameObject.SetActive(false); 

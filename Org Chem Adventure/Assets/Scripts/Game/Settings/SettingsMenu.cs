@@ -16,7 +16,7 @@ public class SettingsMenu : MonoBehaviour {
         gameObject.SetActive(true);
         SettingPanel.SetActive(true);
         RestartPanel.SetActive(false);
-        MusicToggle.isOn = GameManager.Instance.audio.Playing();
+        MusicToggle.isOn = GameManager.Instance.Audio.Playing();
     }
 
     public void Hide()
@@ -60,8 +60,8 @@ public class SettingsMenu : MonoBehaviour {
     public void ToggleMusic(bool val)
     {
         if (val)
-            GameManager.Instance.audio.PlayBGM();
+            GameManager.Instance.Audio.PlayBGM();
         else
-            GameManager.Instance.audio.StopBGM();
+            GameManager.Instance.Audio.StopBGM();
     }
 }
