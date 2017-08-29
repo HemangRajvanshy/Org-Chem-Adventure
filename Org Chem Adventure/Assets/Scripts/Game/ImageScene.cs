@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ImageScene : MonoBehaviour
 {
     public float time = 0.3f;
-    
+    public float transistionwait = 1f;
     //Fade in fade-out methods
     public void Appear()
     {

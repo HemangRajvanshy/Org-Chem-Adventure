@@ -103,7 +103,8 @@ VAR DEBUG = false
 //Acid Dehydration 
     -   "Dehydrating agents. That’s what the few of us living here use to make water."
         "Make water? But isn’t there a rivulet…"
-        "Filled with propanol, that’s what we make the water out of. The reaction is pretty simple, it goes something like this” # RXN1
+        "Filled with propanol, that’s what we make the water out of. The reaction is pretty simple, it goes something like this” 
+        RXN1
         
     -   “You can learn more about it later on.”, he said.
         I gave him a confused look, what about the reaction temperature? The yield? I knew the propene produced was volatile and would escape as soon as the reaction was over but the acid? I had so many questions that all I managed to say was, <>

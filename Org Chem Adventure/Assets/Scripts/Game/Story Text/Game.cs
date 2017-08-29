@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     private Story story;
 
     public ContentView ContentPrefab;
+    public ContentView ImageContentPrefab;
     public ChoiceGroupView ChoiceGroupPrefab;
     public Transform contentParent;
 
@@ -72,9 +73,11 @@ public class Game : MonoBehaviour
             {
                 string content = story.Continue().Trim();
                 content = ParseContent(content);
-                if (content != string.Empty)
+                if (content.Contains("RXN"))
+                    CreateImageView(content);
+                else if (content != string.Empty)
                     CreateContentView(content);
-
+                
                 if (!story.canContinue)
                 {
                     if (story.currentChoices.Count > 0)
@@ -133,6 +136,15 @@ public class Game : MonoBehaviour
             content = content.Replace("<br>", "\n");
         }
         return content;
+    }
+
+    void CreateImageView(string content)
+    {
+        ContentView imgcont = Instantiate(ImageContentPrefab);
+        imgcont.transform.SetParent(contentParent, false);
+        int n = Convert.ToInt32(content[3] + "");
+        imgcont.GetComponent<Image>().sprite = contentManager.ImageDB[n-1];
+        imgcont.GetComponent<Image>().preserveAspect = true;
     }
 
     IEnumerator EvaluateTagsAndPlay(string location)

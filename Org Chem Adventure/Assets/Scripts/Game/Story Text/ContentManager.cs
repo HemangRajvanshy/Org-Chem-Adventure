@@ -7,9 +7,11 @@ public class ContentManager : MonoBehaviour {
 
     public VerticalLayoutGroup layoutGroup;
     public ScrollRect scroll;
+    [SerializeField]
+    public List<Sprite> ImageDB;
 
     private GameObject ContentContainer;
-    private float lastLayoutGroupSize=0f;
+    private float lastLayoutGroupSize = 0f;
     [SerializeField]
     private float offset = 50;
 
