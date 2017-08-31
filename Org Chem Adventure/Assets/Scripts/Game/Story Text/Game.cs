@@ -73,11 +73,16 @@ public class Game : MonoBehaviour
             {
                 string content = story.Continue().Trim();
                 content = ParseContent(content);
+
+                ContentView contentView = null;
                 if (content.Contains("RXN"))
-                    CreateImageView(content);
+                    contentView = CreateImageView(content);
                 else if (content != string.Empty)
-                    CreateContentView(content);
-                
+                    contentView = CreateContentView(content);
+
+                while (contentView.setter.typing)
+                    yield return new WaitForEndOfFrame();
+
                 if (!story.canContinue)
                 {
                     if (story.currentChoices.Count > 0)
@@ -90,6 +95,7 @@ public class Game : MonoBehaviour
                     //}
                 }
             }
+
             if (story.currentChoices.Count > 0)
             {
                 yield return new WaitForSeconds(0.5f);
@@ -138,13 +144,14 @@ public class Game : MonoBehaviour
         return content;
     }
 
-    void CreateImageView(string content)
+    ContentView CreateImageView(string content)
     {
         ContentView imgcont = Instantiate(ImageContentPrefab);
         imgcont.transform.SetParent(contentParent, false);
         int n = Convert.ToInt32(content[3] + "");
         imgcont.GetComponent<Image>().sprite = contentManager.ImageDB[n-1];
         imgcont.GetComponent<Image>().preserveAspect = true;
+        return imgcont;
     }
 
     IEnumerator EvaluateTagsAndPlay(string location)
