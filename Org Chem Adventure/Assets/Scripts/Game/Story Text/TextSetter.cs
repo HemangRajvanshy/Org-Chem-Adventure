@@ -85,6 +85,9 @@ public class TextSetter : MonoBehaviour
 
     public string text;
 
+    private float CommaWait = 0.1f;
+    private float SentenceEndWait = 0.2f;
+
     public void Type(string TargetText)
     {
         StartCoroutine(TypeText(TargetText));
@@ -96,14 +99,27 @@ public class TextSetter : MonoBehaviour
         int StrLen = TargetText.Length;
         int CurrentIndx = 0;
         
-        while(CurrentIndx < StrLen)
+        while(CurrentIndx < StrLen-1)
         {
             text += TargetText[CurrentIndx];
-            yield return new WaitForSeconds(SecondsBetweenCharacters);
+            if (TargetText[CurrentIndx] != ' ')
+            {
+                yield return new WaitForSeconds(SecondsBetweenCharacters);
 
+            }
+            if (TargetText[CurrentIndx] == ',')
+            {
+                yield return new WaitForSeconds(CommaWait); 
+
+            }
+            else if ( (TargetText[CurrentIndx] == '.' && TargetText[CurrentIndx + 1] != '"'))
+            {
+                yield return new WaitForSeconds(SentenceEndWait);
+            }
             CurrentIndx++;
         }
-
+        text += TargetText[StrLen-1];
+        yield return  new WaitForSeconds(0.1f);
         typing = false;
     }
 }
