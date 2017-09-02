@@ -37,7 +37,7 @@ public class ContentView : MonoBehaviour
 
     public TextSetter setter;
     public Text text;
-
+    private string mytext;
     public float speed = 1.0f;
 
     void Awake()
@@ -49,11 +49,19 @@ public class ContentView : MonoBehaviour
     private void Update()
     {
         if(setter.typing)
+        {
             text.text = setter.text;
+            if (Input.GetMouseButtonDown(0))
+            {
+                setter.FinishTyping(mytext);
+                text.text = setter.text;
+            }
+        }
     }
 
     public void LayoutText(string content)
     {
+        mytext = content;
         text = GetComponent<Text>();
         setter.Type(content);
     }

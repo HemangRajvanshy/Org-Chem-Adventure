@@ -90,7 +90,14 @@ public class TextSetter : MonoBehaviour
 
     public void Type(string TargetText)
     {
-        StartCoroutine(TypeText(TargetText));
+        StartCoroutine(TypeText(TargetText)); 
+    }
+
+    public void FinishTyping(string TargetText)
+    {
+        StopCoroutine(TypeText(TargetText));
+        text = TargetText;
+        typing = false;
     }
 
     IEnumerator TypeText(string TargetText)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 
-    private bool Play = true;
+    private bool Play = false;
 
     private AudioSource audioSource
     {
