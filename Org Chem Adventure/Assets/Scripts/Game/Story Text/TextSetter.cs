@@ -85,18 +85,27 @@ public class TextSetter : MonoBehaviour
 
     public string text;
 
+    private IEnumerator cor;
+
     private float CommaWait = 0.1f;
     private float SentenceEndWait = 0.2f;
 
     public void Type(string TargetText)
     {
-        StartCoroutine(TypeText(TargetText)); 
+        cor = TypeText(TargetText);
+        StartCoroutine(cor); 
     }
 
     public void FinishTyping(string TargetText)
     {
-        StopCoroutine(TypeText(TargetText));
+        StopCoroutine(cor);
+        StartCoroutine(Finish(TargetText));
+    }
+
+    IEnumerator Finish(string TargetText)
+    {
         text = TargetText;
+        yield return new WaitForSeconds(0.3f);
         typing = false;
     }
 

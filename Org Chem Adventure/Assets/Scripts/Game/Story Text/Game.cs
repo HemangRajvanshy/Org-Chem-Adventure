@@ -77,12 +77,13 @@ public class Game : MonoBehaviour
                 ContentView contentView = null;
                 if (content.Contains("RXN"))
                     contentView = CreateImageView(content);
-                else if (content != string.Empty)
+                else if (content != string.Empty) // IF it's a dialogue that needs talking
+                {
                     contentView = CreateContentView(content);
-
-                while (contentView.setter.typing)
-                    yield return new WaitForEndOfFrame();
-
+                    while (contentView.setter.typing) // Wait for the dialogue to displau
+                        yield return new WaitForEndOfFrame();
+                }
+                    
                 if (!story.canContinue)
                 {
                     if (story.currentChoices.Count > 0)

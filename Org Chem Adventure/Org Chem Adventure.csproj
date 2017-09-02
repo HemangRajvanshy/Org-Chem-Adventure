@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Game\Settings\SettingsButton.cs" />
     <Compile Include="Assets\Scripts\Game\Settings\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\Game\Standard View\AvatarManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Standard View\ImageContentView.cs" />
     <Compile Include="Assets\Scripts\Game\Standard View\ImageScene.cs" />
     <Compile Include="Assets\Scripts\Game\Standard View\ImageSceneManager.cs" />
     <Compile Include="Assets\Scripts\Game\Standard View\Standardview.cs" />

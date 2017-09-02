@@ -40,13 +40,14 @@ public class ContentView : MonoBehaviour
     private string mytext;
     public float speed = 1.0f;
 
-    void Awake()
+    protected virtual void Awake()
     {
         setter = GetComponent<TextSetter>();
-        setter.SecondsBetweenCharacters = 1 / speed;
+        if(setter != null)
+            setter.SecondsBetweenCharacters = 1 / speed;
     }
 
-    private void Update()
+     protected virtual void Update()
     {
         if(setter.typing)
         {
@@ -54,7 +55,7 @@ public class ContentView : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 setter.FinishTyping(mytext);
-                text.text = setter.text;
+                //text.text = setter.text;
             }
         }
     }
