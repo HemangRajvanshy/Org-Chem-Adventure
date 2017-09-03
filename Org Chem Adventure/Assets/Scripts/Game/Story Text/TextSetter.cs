@@ -128,14 +128,14 @@ public class TextSetter : MonoBehaviour
                 yield return new WaitForSeconds(CommaWait); 
 
             }
-            else if ( (TargetText[CurrentIndx] == '.' && TargetText[CurrentIndx + 1] != '"'))
+            else if ( (TargetText[CurrentIndx] == '.' || TargetText[CurrentIndx] == '!' || TargetText[CurrentIndx] == '?') && TargetText[CurrentIndx + 1] != '"' )
             {
                 yield return new WaitForSeconds(SentenceEndWait);
             }
             CurrentIndx++;
         }
         text += TargetText[StrLen-1];
-        yield return  new WaitForSeconds(0.1f);
+        yield return  new WaitForSeconds(0.5f);
         typing = false;
     }
 }

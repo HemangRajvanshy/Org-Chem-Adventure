@@ -41,8 +41,11 @@ public class ImageSceneManager : MonoBehaviour
 
     IEnumerator Display()
     {
-        PlayScreen.SetActive(false);
- 
+        if (ImageScenes[CurrentScene].time == 0)
+            PlayScreen.SetActive(false);
+        else
+            PlayScreen.GetComponent<Animator>().SetTrigger("Close");
+
         yield return new WaitForSeconds(ImageScenes[CurrentScene].time);
         PlayScreen.SetActive(true);
         PlayScreen.GetComponent<Animator>().SetTrigger("Open");

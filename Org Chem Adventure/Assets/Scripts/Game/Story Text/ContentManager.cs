@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ContentManager : MonoBehaviour {
 
+    public CanvasGroup canvasGroup;
     public VerticalLayoutGroup layoutGroup;
     public ScrollRect scroll;
     [SerializeField]
@@ -22,10 +23,26 @@ public class ContentManager : MonoBehaviour {
 
     public void NewWindow()
     {
+        StartCoroutine(FadeAndClear());
+    }
+
+    private IEnumerator FadeAndClear()
+    {
+        //Fade Out
+        while(canvasGroup.alpha != 0)
+        {
+            canvasGroup.alpha -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
         foreach (Transform child in ContentContainer.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
+
+        //Come Back on
+        canvasGroup.alpha = 1;
+
+        yield return null;
     }
 
     private void LateUpdate()

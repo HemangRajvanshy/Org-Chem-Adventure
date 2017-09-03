@@ -133,7 +133,9 @@ VAR DEBUG = false
         
 === 6Knot ===
     -   Baffled for a second time in such a short period of time, I walked towards the patch not knowing what to expect. Meth, Eth, and Prop were suffixes used to indicate one, two and three carbons. I remembered that much from school. 
-    -   As I got closer to the patch, I realized what I had mistaken for overgrown grass was not grass, but bond line chemicals sticking out of the ground! They looked somewhat similar, but they were not the same. Ethanoic Acid, what did it look like? 
+    -   As I got closer to the patch, I realized what I had mistaken for overgrown grass was not grass, but bond line chemicals sticking out of the ground! 
+    
+    -   They looked somewhat similar, but they were not the same. Ethanoic Acid, what did it look like? 
     
     -   (ques)
     *   __IMG1-1
@@ -159,6 +161,7 @@ VAR DEBUG = false
     -> cont
   
     = cont
+        ~ Expression = neutral
       I made my way to the next town, only stopping to make some water in between. It worked surprisingly well, the water tasted a little different but I don’t feel any after effects. The town came into view just as it was starting to get dark. 
       * [Enter Town] I entered the town not knowing what to expect.
       - __IncrementProgress()
@@ -169,6 +172,7 @@ VAR DEBUG = false
 
 === 7Knot ===
 //Into the acid base town
+    # clear
     - By the time I reached the town gate, I felt my stomach growl. I realized I hadn’t eaten anything since morning. I decided to munch on my travel rations as I walked. 
     - The town was surprisingly much more alive than I had expected. It was as if there was a festival going on. Most of the people seemed to be going in the same direction.
     *   [Follow the crowd] As I tailed the crowd, I could hear a low rumble growing. 
