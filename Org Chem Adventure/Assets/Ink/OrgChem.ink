@@ -3,12 +3,13 @@ VAR money = 0
 LIST Expressio = neutral, happy, confused
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
 VAR Expression = neutral
-VAR DEBUG = false
+VAR DEBUG = true
 {DEBUG:
 	IN DEBUG MODE!
 	* [1Knot] -> 1Knot
 	* [3Knot] -> 3Knot
 	* [6Knot] -> 6Knot
+	* [9Knot] -> 9Knot
 - else:
 	// First diversion: where do we begin?
  nonnono
@@ -87,7 +88,7 @@ VAR DEBUG = false
     *   (Greg) "Do you know about someone going by the name Greg Minerva?"
         "...Uhm, I feel like I have heard that name somewhere before. I don’t quite remember though. A lot of travellers come here in search of people, or at least they used to. You should ask the chief in the next town."
         {not town: -> opts}
-        <br>
+        
     -   "Did you bring your dehydrating agents?", the shopkeeper asked.
     *   "No" 
     "Well, you are in luck. I just got my stock of sulfuric acid yesterday."
@@ -211,4 +212,59 @@ VAR DEBUG = false
     
     *   [Thank him and leave]
     
+    -   I thanked him again and looked at the building to see that indeed it was the town hall and it looked unoccupied at the moment.
+    
+    -   Will have to wait for tomorrow.
+    
+    *   [Find a place to sleep]
+    - __IncrementProgress()
+    {DEBUG: 
+            ->9Knot
+        - else: -> END
+    }
+    
+    
+=== 9Knot ===
+//Sleep and Wake
+    -   I went back to an old building I had seen on my way to the city square I had noticed the withered board it had saying "Board for 2 electrons." 
+    
+        It looked like the building had been unused for a while and so I knocked at the front door to ask whether the offer still held good. The owner looked surprised but he lead me to a  room with a mattress and left fairly quickly. 
+            I figured they did not get much business anymore. 
+            
+    -   I was already very tired.
+    *   [Sleep]
+    I dozed off almost instantly.
+    - __IncrementProgress()
+    {DEBUG: 
+            ->10Knot
+        - else: -> END
+    }
+    
+=== 10Knot === 
+# clear
+
+    -   I made an early start next morning, eating my travel rations for breakfast.
+    - (opts)
+    *   [Look at the people]
+        I studied the people on the streets for a while, but there was nothing out of the ordinary about them. -> opts
+    *   [Go to the town hall]
+    The way to the town hall looked different from what it looked like at night, most of all, the rumble that I guessed could be felt throughout the town was absent.
+    
+    -   I entered the town hall and asked for the chief. I feared if they wouldn’t let a stranger see him. After some waiting I was asked to enter a room at the center of the building. 
+        The chief greeted me with a smile and motioned for me to take a seat. He was a middle aged man with soft features.
+        "What can I help you with, young traveller?” 
+        
+    *   "I am looking for Greg Minerva["],” I said.
+    -    His face showed some sign of recognition for a second, he continued
+        "And you are?” 
+
+    *   ["Ren Minerva, I am his son.”]
+    *   [Lie]
+        I don't think it'd do any harm to tell the chief who I was. Besides, I couldn't think of anything else. 
+    -   "Ren Minerva, I am his son”
+        "I see.” he said standing up. 
+    
+    -   He gestured for me to follow him. We went out into the building and up a flight of stairs. He held open a door to a carpeted room, with the walls full of life size photos of people. Some of the paintings looked older than the others. The chief stopped in front of one of the paintings and said,
+        "Is this the person you are looking for?” 
+
 -> END
