@@ -3,13 +3,13 @@ VAR money = 0
 LIST Expressio = neutral, happy, confused
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
 VAR Expression = neutral
-VAR DEBUG = true
+VAR DEBUG = false
 {DEBUG:
 	IN DEBUG MODE!
 	* [1Knot] -> 1Knot
-	* [3Knot] -> 3Knot
 	* [6Knot] -> 6Knot
 	* [9Knot] -> 9Knot
+	* [11Knot] -> 11Knot
 - else:
 	// First diversion: where do we begin?
  nonnono
@@ -241,6 +241,7 @@ VAR DEBUG = true
     }
     
 === 10Knot === 
+//Town Hall
 # clear
 
     -   I made an early start next morning, eating my travel rations for breakfast.
@@ -264,7 +265,16 @@ VAR DEBUG = true
     -   "Ren Minerva, I am his son”
         "I see.” he said standing up. 
     
-    -   He gestured for me to follow him. We went out into the building and up a flight of stairs. He held open a door to a carpeted room, with the walls full of life size photos of people. Some of the paintings looked older than the others. The chief stopped in front of one of the paintings and said,
+    - __IncrementProgress()
+    {DEBUG: 
+            ->11Knot
+        - else: -> END
+    }
+    
+=== 11Knot === 
+//Inside hall of fame
+    -   He gestured for me to follow him. We went out into the building and up a flight of stairs. He held open a door to a carpeted room, with the walls full of life size photos of people. Some of the paintings looked older than others. 
+    The chief stopped in front of one painting and said,
         "Is this the person you are looking for?” 
 
 -> END
