@@ -17,6 +17,7 @@ public class Game : MonoBehaviour
     public ChoiceGroupView ChoiceGroupPrefab;
     public Transform contentParent;
 
+    public LearnMoreButton LMB;
     public ImageSceneManager imageManager;
     public ContentManager contentManager;
     public ChoiceGroupManager choiceGroupManager;
@@ -136,6 +137,11 @@ public class Game : MonoBehaviour
         {
             if (content.Contains("IncrementProgress"))
                 GameManager.Instance.IncrementProgress();
+            if (content.Contains("ShowLM"))
+                LMB.Show( contentManager.URLDB[Convert.ToInt32(""+ content[8]) ] );
+            if (content.Contains("HideLM"))
+                LMB.Hide();
+
             content = string.Empty;
         }
         else

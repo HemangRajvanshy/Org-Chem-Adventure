@@ -10,6 +10,7 @@ public class ContentManager : MonoBehaviour {
     public ScrollRect scroll;
     [SerializeField]
     public List<Sprite> ImageDB;
+    public List<string> URLDB;
 
     private GameObject ContentContainer;
     private float lastLayoutGroupSize = 0f;

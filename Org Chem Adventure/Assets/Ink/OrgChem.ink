@@ -106,15 +106,16 @@ VAR DEBUG = false
     -   "Dehydrating agents. That’s what the few of us living here use to make water."
         "Make water? But isn’t there a rivulet…"
         "Filled with propanol, that’s what we make the water out of. The reaction is pretty simple, it goes something like this” 
+        __ShowLM1
         RXN1
         
     -   “You can learn more about it later on.”, he said.
         I gave him a confused look, what about the reaction temperature? The yield? I knew the propene produced was volatile and would escape as soon as the reaction was over but the acid? I had so many questions that all I managed to say was, <>
-        
     *   "What about the sulphuric acid?"
     *   "What about the yield?"
     *   "What about the reaction temperature?"
     
+    __HideLM
     -   "Well, that’s a good question. Truth be told, I do not know. It works though, and that’s what I have been drinking for all my life. I think I should tell you, in here, chemical reactions are not the same. All you need to do is to have the right ingredients and some imagination and you can make almost anything you want." 
 
         Bending down, "You’ll know once you try it".
@@ -135,6 +136,8 @@ VAR DEBUG = false
 === 6Knot ===
     -   Baffled for a second time in such a short period of time, I walked towards the patch not knowing what to expect. Meth, Eth, and Prop were suffixes used to indicate one, two and three carbons. I remembered that much from school. 
     -   As I got closer to the patch, I realized what I had mistaken for overgrown grass was not grass, but bond line chemicals sticking out of the ground! 
+    
+    __ShowLM0
     
     -   They looked somewhat similar, but they were not the same. Ethanoic Acid, what did it look like? 
     
@@ -163,6 +166,7 @@ VAR DEBUG = false
   
     = cont
         ~ Expression = neutral
+        __HideLM
       I made my way to the next town, only stopping to make some water in between. It worked surprisingly well, the water tasted a little different but I don’t feel any after effects. The town came into view just as it was starting to get dark. 
       * [Enter Town] I entered the town not knowing what to expect.
       - __IncrementProgress()
