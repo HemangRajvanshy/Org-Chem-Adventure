@@ -79,11 +79,10 @@ VAR DEBUG = false
         }
 === 4Knot === 
 //Nomenclature thing, convo with shopkeeper.
-    -   "Oh, a traveller, not something you see very often these days. 
-    What can I help you with?"
+    -   "Oh, a traveller, not something you see very often these days. <br>What can I help you with?"
     -   (opts)
     *   (town) "How far is the next town?"
-        "About a day on foot"
+        "About a day on foot."
         {not Greg: -> opts}
     *   (Greg) "Do you know about someone going by the name Greg Minerva?"
         "...Uhm, I feel like I have heard that name somewhere before. I don’t quite remember though. A lot of travellers come here in search of people, or at least they used to. You should ask the chief in the next town."
@@ -177,7 +176,7 @@ VAR DEBUG = false
 
 === 7Knot ===
 //Into the acid base town
-    # clear
+    # clear # Imagew2
     - By the time I reached the town gate, I felt my stomach growl. I realized I hadn’t eaten anything since morning. I decided to munch on my travel rations as I walked. 
     - The town was surprisingly much more alive than I had expected. It was as if there was a festival going on. Most of the people seemed to be going in the same direction.
     *   [Follow the crowd] As I tailed the crowd, I could hear a low rumble growing. 
@@ -280,5 +279,36 @@ VAR DEBUG = false
     -   He gestured for me to follow him. We went out into the building and up a flight of stairs. He held open a door to a carpeted room, with the walls full of life size photos of people. Some of the paintings looked older than others. 
     The chief stopped in front of one painting and said,
         "Is this the person you are looking for?” 
+    *   [Continue]
+    
+    -   That was a picture of dad alright, he was even wearing the same clothes that he wore on the day he left home, 9 years ago. Below the picture it read, "Greg Minerva, Champion of 15 battles” I wondered what battles he fought. 
+        "Yea, that’s him.” I said.
+    
+    -   (opts)
+    *   (where)"Do you know where he is now?”
+        "No, from what I know, he was only in town for a few days.” {not what: -> opts}
+    *   (what)"What does the plague mean?”
+        "Oh, this is the hall of fame for the champions of the acid-base battles.”
+        * * "So did he fight those creatures I saw in the arena last night?”
+            "No, of course not.” he said with a chuckle.
+            "The champions in the hall are masters of gambling. They predicted the outcome of the battles correctly and made themselves a fortune”
+            {not where: -> opts}
+    -   As the chief was talking, another portrait caught my eye. It was Vance, a little younger and neatly dressed. The plague read, "Vance Gaston, Champion of 20 battles”
+    *   "Where did he go?”[]I asked
+    - __IncrementProgress()
+    {DEBUG: 
+            ->12Knot
+        - else: -> END
+    }
+    
+=== 12Knot ===
+//On we go to look for Vance.
+    -    "The town has only two paths as such. One of which you came in from, the other to the Light Town. You may try…”
+    *    "How far is it?” 
+        "About a day by car. There used to be other towns in between, but they are deserted now.”
+        "By car?”
+        "Yes, you can rent one from the north-eastern side of the town. It will cost you about 50 electrons.”
+        "I see. Thank you.” I bowed and took my leave.
+
 
 -> END

@@ -168,12 +168,17 @@ public class Game : MonoBehaviour
         {
             foreach(string tag in tags)
             {
-                if(tag.Contains("clear"))
+                if (tag.Contains("clear"))
                 {
                     contentManager.NewWindow();
                     yield return new WaitForSeconds(2f);
                 }
-                if (tag.Contains("Image"))
+
+                if(tag.Contains("Imagew"))
+                {
+                    imageManager.ChangeSceneWithoutCue(Convert.ToInt32(tag.Substring(6, 1) + ""));
+                }
+                else if (tag.Contains("Image"))
                 {
                     float wait = imageManager.CueScene( Convert.ToInt32(tag.Substring(5, 1) + "" ) );
                     avatar.Disappear();

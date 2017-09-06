@@ -58,6 +58,12 @@ public class ImageSceneManager : MonoBehaviour
         return CurrentScene;
     }
 
+    public void ChangeSceneWithoutCue(int scenenum)
+    {
+        ImageScenes[scenenum].Set(ImageScenes[CurrentScene]);
+        CurrentScene = scenenum;
+    }
+
     private void SetScene(int scenenum)
     {
         ImageScenes[scenenum].Set();
