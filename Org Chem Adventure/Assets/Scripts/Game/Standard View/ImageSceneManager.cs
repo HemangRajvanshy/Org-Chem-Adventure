@@ -9,6 +9,7 @@ public class ImageSceneManager : MonoBehaviour
     public int S2;
     public int S3;
     public int S4;
+    public int S5;
 
     public GameObject PlayScreen;
     public AvatarManager avatar;
@@ -25,6 +26,10 @@ public class ImageSceneManager : MonoBehaviour
             CurrentScene = 1;
         else if (prog < S3)
             CurrentScene = 2;
+        else if (prog < S4)
+            CurrentScene = 3;
+        else if (prog < S5)
+            CurrentScene = 4;
         // TODO
         if (prog > 2)
             SetScene(CurrentScene);

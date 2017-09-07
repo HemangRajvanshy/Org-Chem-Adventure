@@ -185,7 +185,6 @@ VAR DEBUG = false
     *   [Ask someone about it.]
     
     -   People flanked it on all four sides, shouting encouragements and insults at the creatures in the ring. {look: I couldn't figure out anything else.}
-        I approached a somewhat less excited person standing further away from the crowd, looking for an explanation.
           
     - __IncrementProgress()
     {DEBUG: 
@@ -196,6 +195,7 @@ VAR DEBUG = false
 
 === 8Knot ===
 //Vance convo
+    -    I approached a somewhat less excited person standing further away from the crowd, looking for an explanation.
     -    (opts)
     *   ["Do you know anything about Greg Minerva?"] 
         No, I couldn't directly ask a stranger about Dad. I'd better get a hold of the situation and then find the town chief. -> opts 
@@ -246,7 +246,6 @@ VAR DEBUG = false
 === 10Knot === 
 //Town Hall
 # clear
-
     -   I made an early start next morning, eating my travel rations for breakfast.
     - (opts)
     *   [Look at the people]

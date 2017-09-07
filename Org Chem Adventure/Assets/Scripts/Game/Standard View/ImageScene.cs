@@ -8,6 +8,8 @@ public class ImageScene : MonoBehaviour
 {
     public float time = 0.3f;
     public float transistionwait = 1f;
+
+    private bool running = false;
     //Fade in fade-out methods
     public void Appear()
     {
@@ -21,12 +23,16 @@ public class ImageScene : MonoBehaviour
 
     public void Set(ImageScene disap = null)
     {
-        this.GetComponent<Image>().enabled = true;
-        StartCoroutine(FadeIn(disap));
+        if(!running)
+        {
+            this.GetComponent<Image>().enabled = true;
+            StartCoroutine(FadeIn(disap));
+        }
     }
 
     IEnumerator FadeIn(ImageScene disap)
     {
+        running = true;
         Image image = this.GetComponent<Image>();
         image.color = new Color(image.color.r, image.color.g, image.color.b ,0);
         while (image.color.a < 1)
@@ -39,5 +45,6 @@ public class ImageScene : MonoBehaviour
         {
             disap.Disappear();
         }
+        running = false;
     }
 }
