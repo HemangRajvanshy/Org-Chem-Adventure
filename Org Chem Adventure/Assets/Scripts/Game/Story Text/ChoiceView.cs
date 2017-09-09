@@ -38,15 +38,24 @@ public class ChoiceView : MonoBehaviour {
             return GetComponent<Button>();
         }
     }
+    public GraphicPulser pulser
+    {
+        get
+        {
+            return GetComponent<GraphicPulser>();
+        }
+    }
 
     private void Awake()
     {
         button.interactable = false;
+        pulser.enabled = false;
     }
 
     public void LayoutText(Choice choice)
     {
         SetChoice(choice);
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
         this.GetComponent<Text>().text = choice.text.Trim();
         // Canvas.ForceUpdateCanvases();
 
@@ -63,11 +72,22 @@ public class ChoiceView : MonoBehaviour {
         this.choice = choice;
     }
 
-    public void Render()
+    virtual public void Render()
     {
         //text.text = content;
         //base.LayoutText(content);
-        //StartCoroutine(FadeIn(2f));
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+        while (text.color.a < 1)
+        {
+            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a + Time.deltaTime * 2);
+            yield return new WaitForEndOfFrame();
+        }
+        pulser.enabled = true;
         button.interactable = true;
     }
 
