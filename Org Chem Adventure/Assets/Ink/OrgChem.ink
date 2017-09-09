@@ -114,8 +114,9 @@ VAR DEBUG = false
     *   "What about the yield?"
     *   "What about the reaction temperature?"
     
-    __HideLM
-    -   "Well, that’s a good question. Truth be told, I do not know. It works though, and that’s what I have been drinking for all my life. I think I should tell you, in here, chemical reactions are not the same. All you need to do is to have the right ingredients and some imagination and you can make almost anything you want." 
+    
+    -   __HideLM
+        "Well, that’s a good question. Truth be told, I do not know. It works though, and that’s what I have been drinking for all my life. I think I should tell you, in here, chemical reactions are not the same. All you need to do is to have the right ingredients and some imagination and you can make almost anything you want." 
 
         Bending down, "You’ll know once you try it".
         
@@ -308,6 +309,7 @@ VAR DEBUG = false
         "By car?”
         "Yes, you can rent one from the north-eastern side of the town. It will cost you about 50 electrons.”
         "I see. Thank you.” I bowed and took my leave.
-
-
+    
+    -   The conjugate sun was overhead when I came out of the town hall. 50 electrons. After the nights stay all I was left with was 3. The chief said that the champions made a fortune out of the acid-base gambling. Could I, maybe, do the same?
+    
 -> END
