@@ -61,7 +61,7 @@ VAR DEBUG = false
         
 === 3Knot === 
 // Into the land
-    -   I crossed the boundary with mixed feelings and was at once take aback by the differences. It not only looked different, but also felt different. I was greeted with a board with letters appearing as if they were bond line structures.
+    -   I crossed the boundary with mixed feelings and was at once taken aback by the differences. It not only looked different, but also felt different. I was greeted with a board with letters appearing as if they were bond line structures.
     -   (opts)
     *   (look) [Look at the surroundings]
         A rivulet ran along the well-beaten path, with some undergrowth. The conjugated sun, as it was called, was the discerning feature that separated the org chem land with the rest of the world. If you look up into the sky and can see the electrons whizzing around in a circle in a hexagonal shaped sun, you know you are in the land of organic chemistry.
@@ -246,7 +246,7 @@ VAR DEBUG = false
     
 === 10Knot === 
 //Town Hall
-# clear
+# clear #Imagew3
     -   I made an early start next morning, eating my travel rations for breakfast.
     - (opts)
     *   [Look at the people]
@@ -311,5 +311,20 @@ VAR DEBUG = false
         "I see. Thank you.” I bowed and took my leave.
     
     -   The conjugate sun was overhead when I came out of the town hall. 50 electrons. After the nights stay all I was left with was 3. The chief said that the champions made a fortune out of the acid-base gambling. Could I, maybe, do the same?
+    *   I don't think so.
+    *   Probably.
+    *   Maybe I can.
     
+    -   I needed more information. I pestered the town hall guard for more details. He told me that you place bet some number of electrons at the beginning of the fight and if you win, you get two times as many electrons as you bet. Otherwise you lose the electrons you bet with. Seemed fair enough, but how do you predict the outcome? Maybe I should ask Vance about it. 
+    
+    *   [Look for Vance]
+    -   __IncrementProgress()
+    {DEBUG: 
+            ->13Knot
+        - else: -> END
+    }
+    
+=== 13Knot ===
+
+
 -> END
