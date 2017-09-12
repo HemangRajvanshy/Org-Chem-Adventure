@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour {
    
@@ -40,8 +41,8 @@ public class PlayerMovement : MonoBehaviour {
     {
 
         // get the input this frame
-        float vertical = Input.GetAxis("Vertical");
-        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+        float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
 
         // if there is no input then stop the animation
         if ((vertical == 0.0f) && (horizontal == 0.0f))
@@ -57,27 +58,27 @@ public class PlayerMovement : MonoBehaviour {
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 
         // horizontal movement, left or right, set animation type and speed 
-        if (vertical > 0)
+        if (vertical > 0.25)
         {
             //transform.Translate(0, movementSpeed * 0.9f * Time.deltaTime, 0);
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, movementSpeed * Time.deltaTime);
             animator.SetInteger("Direction", 0);
             animator.speed = 1f;
         }
-        else if (vertical < 0)
+        else if (vertical < -0.25)
         {
             //transform.Translate(0, -movementSpeed *  0.9f * Time.deltaTime, 0);
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, -movementSpeed * Time.deltaTime);
             animator.SetInteger("Direction", 2);
             animator.speed = 1f;
         }
-        else if (horizontal > 0)
+        else if (horizontal > 0.2)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(movementSpeed * Time.deltaTime, 0);
             animator.SetInteger("Direction", 1);
             animator.speed = 1.5f;
         }
-        else if (horizontal < 0)
+        else if (horizontal < -0.2)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-movementSpeed * Time.deltaTime, 0);
             animator.SetInteger("Direction", 3);
