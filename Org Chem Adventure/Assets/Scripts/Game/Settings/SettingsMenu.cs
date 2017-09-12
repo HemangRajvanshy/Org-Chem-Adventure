@@ -31,8 +31,8 @@ public class SettingsMenu : MonoBehaviour {
 
     public void Credits()
     {
-        //Show credits
-        Debug.Log("Show Credits");
+        GameManager.Instance.paused = false;
+        GameManager.Instance.intro.ShowCredits();
     }
 
     public void Restart()
