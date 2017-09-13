@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
     public AudioManager Audio;
-    public RPGManager rpgManager;
     public Intro intro;
     public SettingsMenu Settings;
     public Game game;
