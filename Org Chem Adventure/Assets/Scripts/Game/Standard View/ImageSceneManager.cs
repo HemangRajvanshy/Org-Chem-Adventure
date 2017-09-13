@@ -11,7 +11,7 @@ public class ImageSceneManager : MonoBehaviour
     public int S4;
     public int S5;
 
-    public GameObject PlayScreen;
+    public Standardview PlayScreen;
     public AvatarManager avatar;
     public Canvas choiceCanvas;
 
@@ -47,13 +47,12 @@ public class ImageSceneManager : MonoBehaviour
     IEnumerator Display()
     {
         if (ImageScenes[CurrentScene].time == 0)
-            PlayScreen.SetActive(false);
+            PlayScreen.CloseWithoutAnim();
         else
-            PlayScreen.GetComponent<Animator>().SetTrigger("Close");
+            PlayScreen.CloseWithAnim();
 
         yield return new WaitForSeconds(ImageScenes[CurrentScene].time);
-        PlayScreen.SetActive(true);
-        PlayScreen.GetComponent<Animator>().SetTrigger("Open");
+        PlayScreen.Open();
         while (PlayScreen.GetComponent<Animator>().GetAnimatorTransitionInfo(0).IsName("Base"))
             yield return new WaitForSeconds(0.1f); 
     }
@@ -72,6 +71,6 @@ public class ImageSceneManager : MonoBehaviour
     private void SetScene(int scenenum)
     {
         ImageScenes[scenenum].Set();
-        PlayScreen.GetComponent<Animator>().SetTrigger("Open");
+        PlayScreen.Open();
     }
 }

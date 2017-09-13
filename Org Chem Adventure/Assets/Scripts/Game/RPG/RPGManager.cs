@@ -9,9 +9,16 @@ public class RPGManager : MonoBehaviour {
 
     public List<GameObject> Stages;
 
-    public void SetActive(int stage)
+    void Start()
     {
+        Control.SetActive(false);
+        Character.SetActive(false);
+    }
 
+    public void Start(int stage)
+    {
+        Control.SetActive(true);
+        Character.SetActive(true);
     }
 
 }

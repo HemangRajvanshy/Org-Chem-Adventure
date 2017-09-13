@@ -61,6 +61,7 @@ VAR DEBUG = false
         
 === 3Knot === 
 // Into the land
+    # RPG1
     -   I crossed the boundary with mixed feelings and was at once taken aback by the differences. It not only looked different, but also felt different. I was greeted with a board with letters appearing as if they were bond line structures.
     -   (opts)
     *   (look) [Look at the surroundings]

@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Game\InkManager.cs" />
     <Compile Include="Assets\Scripts\Game\Intro.cs" />
     <Compile Include="Assets\Scripts\Game\Player.cs" />
+    <Compile Include="Assets\Scripts\Game\RPG\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Game\RPG\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Game\RPG\RPGManager.cs" />
     <Compile Include="Assets\Scripts\Game\Settings\SettingsButton.cs" />

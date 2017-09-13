@@ -20,6 +20,7 @@ public class Game : MonoBehaviour
     public LearnMoreButton LMB;
     public ImageSceneManager imageManager;
     public ContentManager contentManager;
+    public Standardview standardView;
     public ChoiceGroupManager choiceGroupManager;
     public AvatarManager avatar;
 
@@ -173,7 +174,11 @@ public class Game : MonoBehaviour
                     contentManager.NewWindow();
                     yield return new WaitForSeconds(2f);
                 }
-
+                if(tag.Contains("RPG"))
+                {
+                    GameManager.Instance.rpgManager.Start( Convert.ToInt32(tag.Substring(3,1)+""));
+                    standardView.CloseWithAnim();
+                }
                 if(tag.Contains("Imagew"))
                 {
                     imageManager.ChangeSceneWithoutCue(Convert.ToInt32(tag.Substring(6, 1) + ""));
