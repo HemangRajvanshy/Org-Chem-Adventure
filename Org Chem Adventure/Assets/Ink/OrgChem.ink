@@ -326,8 +326,11 @@ VAR DEBUG = false
     
 === 13Knot ===
 //Meeting with Vance.
--   I asked the people around and was soon standing in what looked like a pub, with Vance sitting alone at the counter.
-    "Mr. Vance”, I began. He looked a little surprised at the interruption.
-
+    -   I asked the people around and was soon standing in what looked like a pub, with Vance sitting alone at the counter.
+        "Mr. Vance”, I began. He looked a little surprised at the interruption.
+    *    "Can I ask you a few more questions?”
+    *   “How do you predict the outcome of the acid base battles?”
+    
+    
 
 -> END
