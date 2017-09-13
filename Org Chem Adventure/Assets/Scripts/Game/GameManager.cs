@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour {
         player = GameObject.Find("Player").GetComponent<Player>();
         player.Init();
         ProgressIndex = player.SaveData.ProgressIndex;
-
         if (player.SaveData.Music) //Start the background music if player wants it.
             Audio.PlayBGM();
     }

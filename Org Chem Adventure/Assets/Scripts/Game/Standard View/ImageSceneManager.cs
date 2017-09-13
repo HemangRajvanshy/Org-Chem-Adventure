@@ -31,7 +31,7 @@ public class ImageSceneManager : MonoBehaviour
         else if (prog < S5)
             CurrentScene = 4;
         // TODO
-        if (prog > 2)
+        if (prog >= 2)
             SetScene(CurrentScene);
     }
 
