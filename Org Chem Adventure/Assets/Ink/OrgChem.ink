@@ -61,7 +61,7 @@ VAR DEBUG = false
         
 === 3Knot === 
 // Into the land
-    -   I crossed the boundary with mixed feelings and was at once taken aback by the differences. It not only looked different, but also felt different. I was greeted with a board with letters appearing as if they were bond line structures.
+    -   I crossed the boundary with mixed feelings and was at once taken aback by the differences. It not only looked different, but also felt different. The letters on the board at the entrance appeared as if they were bond line structures. 
     -   (opts)
     *   (look) [Look at the surroundings]
         A rivulet ran along the well-beaten path, with some undergrowth. The conjugated sun, as it was called, was the discerning feature that separated the org chem land with the rest of the world. If you look up into the sky and can see the electrons whizzing around in a circle in a hexagonal shaped sun, you know you are in the land of organic chemistry.
@@ -69,9 +69,7 @@ VAR DEBUG = false
     *   (people) [Look for other people]
         {look:My admiration was cut short when} I realized that compared to all my other adventures, this one was different. There was no one around. Everywhere I went till date, the entry points have always been happening.
         {not look: -> opts}
-
-    -   Dad’s map felt heavy in my pocket. I started walking along the rivulet and wondered if my dad had a similar experience. It had only been 30 minutes since I started walking, when I came across what looked like a little shop. It looked desolate, but I was surprised to find someone inside. 
-    
+        
     -   __IncrementProgress()
         {DEBUG: 
             ->4Knot
@@ -79,7 +77,14 @@ VAR DEBUG = false
         }
 === 4Knot === 
 //Nomenclature thing, convo with shopkeeper.
-    -   "Oh, a traveller, not something you see very often these days. <br>What can I help you with?"
+    -   Dad’s map felt heavy in my pocket. I started walking along the rivulet and wondered if my dad had a similar experience. It had only been 30 minutes since I started walking, when I came across what looked like a little shop.
+    
+    -   It looked desolate.
+    *   [Look Inside]
+        I was surprised to find someone inside. 
+    *   (walk)[Keep Walking]
+        I was surprised when someone called out to me from inside the shop as I passed by.
+    -   "Oh, a traveller, not something you see very often these days.{not walk: <br>What can I help you with?}"
     -   (opts)
     *   (town) "How far is the next town?"
         "About a day on foot."
