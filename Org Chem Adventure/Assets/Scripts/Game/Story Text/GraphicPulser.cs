@@ -11,7 +11,9 @@ public class GraphicPulser : MonoBehaviour {
 
     void Update () {
 		timer += speed * Time.deltaTime;
-		graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, pulseCurve.Evaluate(timer % 1));
+        graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, pulseCurve.Evaluate(timer % 1));
+        //graphic.color = new Color( 3*(1-pulseCurve.Evaluate(timer % 1)), 3 * (1 - pulseCurve.Evaluate(timer % 1)), 3 * (1 - pulseCurve.Evaluate(timer % 1)), pulseCurve.Evaluate(timer % 1));
+        //Debug.Log((pulseCurve.Evaluate(timer % 1)));
         ((RectTransform)transform).localScale = new Vector3(SizeCurve.Evaluate(timer % 1), SizeCurve.Evaluate(timer % 1), 1);
 	}
 }

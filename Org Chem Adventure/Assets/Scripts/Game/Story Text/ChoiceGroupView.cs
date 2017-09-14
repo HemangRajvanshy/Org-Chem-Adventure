@@ -37,6 +37,7 @@ public class ChoiceGroupView : MonoBehaviour {
         foreach (Choice choice in choices)
         {
             LayoutChoice(choice);
+            SetSize();
         }
         //verticalLayoutGroup.enabled = false;
         //contentSizeFitter.enabled = false;
@@ -44,6 +45,16 @@ public class ChoiceGroupView : MonoBehaviour {
         {
             choiceView.rectTransform.sizeDelta = new Vector2(choiceView.rectTransform.sizeDelta.x, choiceView.rectTransform.sizeDelta.y + verticalLayoutGroup.spacing * 0.5f);
         }
+    }
+
+    void SetSize()
+    {
+        Canvas.ForceUpdateCanvases();
+        Rect rec = GetComponent<RectTransform>().rect;
+        RectTransform rectt = GetComponent<RectTransform>();
+
+        if (rec.height > 250)
+            rectt.localPosition = new Vector3 (rectt.localPosition.x, rectt.localPosition.y + rec.height - 250, rectt.localPosition.z);
     }
 
     public void RenderChoices()
@@ -83,7 +94,7 @@ public class ChoiceGroupView : MonoBehaviour {
             choiceView.LayoutText(choice);
             choiceViews.Add(choiceView);
             return choiceView;
-        }
+        }        
     }
 
 
