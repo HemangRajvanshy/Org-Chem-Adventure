@@ -52,8 +52,9 @@ public class ImageSceneManager : MonoBehaviour
             PlayScreen.CloseWithAnim();
 
         yield return new WaitForSeconds(ImageScenes[CurrentScene].time);
+
         PlayScreen.Open();
-        while (PlayScreen.GetComponent<Animator>().GetAnimatorTransitionInfo(0).IsName("Base"))
+        while (PlayScreen.GetComponent<Animator>().GetAnimatorTransitionInfo(0).IsName("Close"))
             yield return new WaitForSeconds(0.1f); 
     }
 

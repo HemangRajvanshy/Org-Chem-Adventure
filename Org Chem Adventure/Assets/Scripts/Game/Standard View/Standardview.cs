@@ -21,9 +21,9 @@ public class Standardview : MonoBehaviour {
 
     IEnumerator Close()
     {
-        while (this.GetComponent<Animator>().GetAnimatorTransitionInfo(0).IsName("Base"))
+        while (this.GetComponent<Animator>().GetAnimatorTransitionInfo(0).IsName("Open"))
             yield return new WaitForSeconds(0.1f);
-        choiceCanvas.enabled = false;
+        //choiceCanvas.enabled = false;
     }
 
     public void Open()
