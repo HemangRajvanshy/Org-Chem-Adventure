@@ -17,14 +17,11 @@ public class Player : MonoBehaviour {
         //otherwise, if we do, kill this thing
         else
             Destroy(this.gameObject);
-
-
         DontDestroyOnLoad(this.gameObject);
     }
 
     void OnDestroy()
     {
-        Debug.Log("Destroyed");
         SaveGame();
     }
 

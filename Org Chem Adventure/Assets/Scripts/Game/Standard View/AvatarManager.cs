@@ -6,20 +6,22 @@ using Ink.Runtime;
 
 public class AvatarManager : MonoBehaviour {
 
+    public Animator anim;
     public Image Avatar;
     public Sprite Neutral;
     public Sprite Happy;
     public Sprite Confused;
 
-
     public void Appear()
     {
-        gameObject.SetActive(true);
+        anim.SetBool("OnScreen", true);
+        //gameObject.SetActive(true);
     }
 
     public void Disappear()
     {
-        gameObject.SetActive(false);
+        anim.SetBool("OnScreen", false);
+        //gameObject.SetActive(false);
     }
 
     public void UpdateExpression(Story story)
