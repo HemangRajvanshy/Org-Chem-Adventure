@@ -1,30 +1,45 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-
     private bool Play = false;
 
-    private AudioSource audioSource
+    public List<AudioClip> BGMDB;
+    public List<AudioClip> SFXDB;
+
+    public AudioSource BGM;
+    public AudioSource Sfx;
+
+    public void ParseQuery(string s)
     {
-        get
-        {
-            return GetComponent<AudioSource>();
-        }
+        s = s.Substring(7, s.Length - 7);
+
+        if (s.Contains("BG"))
+            ChangeBGM(Convert.ToInt32("" + s[2]) );
+        if (s.Contains("SFX"))
+            PlaySound(SFXDB[ Convert.ToInt32("" + s[3]) ]);
     }
 
     public void PlayBGM()
     {
         Play = true;
-        audioSource.Play();
+        BGM.Play();
     }
 
     public void StopBGM()
     {
         Play = false;
-        audioSource.Pause();
+        BGM.Pause();
+    }
+
+    public void ChangeBGM(int n)
+    {
+        BGM.clip = BGMDB[n];
+        if (Play)
+            BGM.Play();
     }
 
     public bool Playing()
@@ -32,6 +47,8 @@ public class AudioManager : MonoBehaviour
         return Play;
     }
 
+
+    //For one shot sounds
     private void PlaySound(AudioClip audioClip, float volume = 1)
     {
         GameObject tempGO = new GameObject("Audio: " + audioClip.name); // create the temp object

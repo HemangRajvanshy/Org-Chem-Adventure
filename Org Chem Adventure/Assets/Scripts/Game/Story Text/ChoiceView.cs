@@ -93,6 +93,7 @@ public class ChoiceView : MonoBehaviour {
 
     public void OnClick()
     {
+        transform.parent.parent.GetComponent<AudioSource>().Play();
         MakeChoice();
     }
 

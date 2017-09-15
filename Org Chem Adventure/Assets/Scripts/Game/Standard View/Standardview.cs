@@ -16,6 +16,7 @@ public class Standardview : MonoBehaviour {
     public void CloseWithAnim()
     {
         this.GetComponent<Animator>().SetTrigger("Close");
+        GetComponent<AudioSource>().Play();
         StartCoroutine(Close());
     }
 
@@ -31,6 +32,7 @@ public class Standardview : MonoBehaviour {
         choiceCanvas.enabled = true;
         group.alpha = 1;
         this.GetComponent<Animator>().SetTrigger("Open");
+        GetComponent<AudioSource>().Play();
     }
 
 }

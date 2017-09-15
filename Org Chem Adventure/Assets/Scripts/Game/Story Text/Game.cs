@@ -142,7 +142,8 @@ public class Game : MonoBehaviour
                 LMB.Show( contentManager.URLDB[Convert.ToInt32(""+ content[8]) ] );
             if (content.Contains("HideLM"))
                 LMB.Hide();
-
+            if (content.Contains("Audio"))
+                GameManager.Instance.Audio.ParseQuery(content);
             content = string.Empty;
         }
         else

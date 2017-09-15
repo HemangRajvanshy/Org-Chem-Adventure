@@ -105,6 +105,7 @@ public class TextSetter : MonoBehaviour
     IEnumerator Finish(string TargetText)
     {
         text = TargetText;
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(0.3f);
         typing = false;
     }
