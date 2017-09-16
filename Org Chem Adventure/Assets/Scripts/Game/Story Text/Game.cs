@@ -144,6 +144,9 @@ public class Game : MonoBehaviour
                 LMB.Hide();
             if (content.Contains("Audio"))
                 GameManager.Instance.Audio.ParseQuery(content);
+            if (content.Contains("Tut"))
+                GameManager.Instance.tutManager.ParseTutQuery(content.Substring(5, 2));
+
             content = string.Empty;
         }
         else

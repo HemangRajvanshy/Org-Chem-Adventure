@@ -24,6 +24,7 @@ VAR DEBUG = false
 //Letter to Mom
    # Image0
     - 	Dear Mom,
+        __TutS1
 		*	[Today I embark on a new adventure] 
 		    __AudioBG0
             Today I embark on a new adventure. My journey through the various worlds has finally brought me to one of the most dangerous yet bountiful of lands, to the magical land of organic chemistry. I know how much this worries you, you have always told me to stay away from this land, what this land did to dad….
@@ -32,7 +33,7 @@ VAR DEBUG = false
             In the meantime, take care.
             
             Sign <br>Ren Minerva
-        
+        __TutS2
         -   *   [Send]__IncrementProgress()
                 {DEBUG: 
                     ->2Knot 
