@@ -12,8 +12,10 @@ public class AvatarManager : MonoBehaviour {
     public Sprite Happy;
     public Sprite Confused;
 
+
     public void Appear()
     {
+
         anim.SetBool("OnScreen", true);
         //gameObject.SetActive(true);
     }

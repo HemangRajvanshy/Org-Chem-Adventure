@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\Game\Story Text\GraphicPulser.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ImageChoiceView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\TextSetter.cs" />
+    <Compile Include="Assets\Scripts\Game\TutorialManager.cs" />
     <Compile Include="Assets\Scripts\Utils\Timer\Timer.cs" />
     <Compile Include="Assets\Scripts\Utils\Timer\TimerState.cs" />
     <Compile Include="Assets\Scripts\Utils\Tween\Types\Base\TypeTween.cs" />

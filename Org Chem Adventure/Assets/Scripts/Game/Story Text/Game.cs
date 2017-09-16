@@ -182,7 +182,7 @@ public class Game : MonoBehaviour
                 else if (tag.Contains("Image"))
                 {
                     float wait = imageManager.CueScene( Convert.ToInt32(tag.Substring(5, 1) + "" ) );
-                    avatar.Disappear();
+                    if(wait != 0) avatar.Disappear();
                     yield return new WaitForSeconds(wait);
                     avatar.Appear();
                 }
