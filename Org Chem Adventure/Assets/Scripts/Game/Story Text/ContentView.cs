@@ -52,7 +52,7 @@ public class ContentView : MonoBehaviour
         if(setter.typing)
         {
             text.text = setter.text;
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && GameManager.Instance.paused == false)
             {
                 setter.FinishTyping(mytext);
                 //text.text = setter.text;

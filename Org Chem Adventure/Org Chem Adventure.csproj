@@ -87,7 +87,6 @@
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Debug\MasterTest.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Game\InkManager.cs" />
     <Compile Include="Assets\Scripts\Game\Intro.cs" />
     <Compile Include="Assets\Scripts\Game\Player.cs" />
     <Compile Include="Assets\Scripts\Game\Settings\SettingsButton.cs" />
@@ -107,7 +106,8 @@
     <Compile Include="Assets\Scripts\Game\Story Text\GraphicPulser.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ImageChoiceView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\TextSetter.cs" />
-    <Compile Include="Assets\Scripts\Game\TutorialManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Tutorial\Tutorial.cs" />
+    <Compile Include="Assets\Scripts\Game\Tutorial\TutorialManager.cs" />
     <Compile Include="Assets\Scripts\Utils\Timer\Timer.cs" />
     <Compile Include="Assets\Scripts\Utils\Timer\TimerState.cs" />
     <Compile Include="Assets\Scripts\Utils\Tween\Types\Base\TypeTween.cs" />

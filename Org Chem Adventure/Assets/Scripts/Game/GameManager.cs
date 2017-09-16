@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
+
+    public TutorialManager tutManager;
     public AudioManager Audio;
     public Intro intro;
     public SettingsMenu Settings;
