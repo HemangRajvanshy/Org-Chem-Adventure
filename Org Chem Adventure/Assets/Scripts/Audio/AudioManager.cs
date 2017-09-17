@@ -37,9 +37,31 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeBGM(int n)
     {
+        StartCoroutine(SoundFade(n));
+
+    }
+
+    IEnumerator SoundFade(int n)
+    {
+        float vol = BGM.volume;
+        while(BGM.volume > 0)
+        {
+            BGM.volume -= Time.deltaTime*(0.3f);
+            yield return new WaitForEndOfFrame();
+        }
         BGM.clip = BGMDB[n];
         if (Play)
             BGM.Play();
+
+        while (BGM.volume < vol)
+        {
+            BGM.volume += Time.deltaTime*(0.3f);
+            if (BGM.clip.name == "Crowd")
+                BGM.volume -= Time.deltaTime * (0.2f);
+            yield return new WaitForEndOfFrame();
+        }
+
+
     }
 
     public bool Playing()
@@ -55,8 +77,10 @@ public class AudioManager : MonoBehaviour
         tempGO.transform.SetParent(transform);
         AudioSource audioSource = tempGO.AddComponent<AudioSource>(); // add an audio source
         audioSource.clip = audioClip; // define the clip
+
         audioSource.spatialBlend = 0;
         audioSource.Play(); // start the sound
         Destroy(tempGO, audioClip.length); // destroy object after clip duration
+
     }
 }

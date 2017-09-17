@@ -15,7 +15,6 @@ public class AvatarManager : MonoBehaviour {
 
     public void Appear()
     {
-
         anim.SetBool("OnScreen", true);
         //gameObject.SetActive(true);
     }
@@ -28,6 +27,9 @@ public class AvatarManager : MonoBehaviour {
 
     public void UpdateExpression(Story story)
     {
+        if (anim.GetBool("OnScreen") == false)
+            anim.SetBool("OnScreen", true);
+
         InkList exp = (InkList)story.variablesState["Expression"];
         string val = exp.ToString();
         if (val == "neutral")

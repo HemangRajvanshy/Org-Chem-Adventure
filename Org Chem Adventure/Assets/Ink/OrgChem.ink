@@ -1,6 +1,6 @@
 VAR money = 0
 
-LIST Expressio = neutral, happy, confused
+LIST Expressio = neutral, happy, confused, distressed
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
 VAR Expression = neutral
 VAR DEBUG = false
@@ -10,12 +10,11 @@ VAR DEBUG = false
 	* [6Knot] -> 6Knot
 	* [9Knot] -> 9Knot
 	* [11Knot] -> 11Knot
+	* [13Knot] -> 13Knot
 - else:
 	// First diversion: where do we begin?
  nonnono
 }
-
-
 
 === function IncrementProgress ===
     ~return 1
@@ -23,6 +22,8 @@ VAR DEBUG = false
 === 1Knot === 
 //Letter to Mom
    # Image0
+   ~ Expression = neutral
+   
     - 	Dear Mom,
         __TutS1
 		*	[Today I embark on a new adventure] 
@@ -43,7 +44,11 @@ VAR DEBUG = false
 === 2Knot === 
 // The Journey Begins
     # clear
-    - Most people think of the land of Organic chemistry as the far-off, dreaded land that they will never have to do anything with. This was not how it was at our place. The earliest and the only few memories that I have of my father revolved around it. 
+    ~ Expression = neutral
+    
+    - Most people think of the land of Organic Chemistry as the far-off, dreaded land that they will never have to do anything with. 
+        It wasn't so at our place. 
+        The earliest and the only few memories that I have of my father revolved around the land of Organic Chemistry. 
     
     He used to tell me various stories about how their sun was not the same as ours, how you could see mysterious things you could not see anywhere else.
     
@@ -65,23 +70,31 @@ VAR DEBUG = false
         
 === 3Knot === 
 // Into the land
-    # Image1
-    -   I crossed the boundary with mixed feelings and was at once taken aback by the differences. It not only looked different, but also felt different. The letters on the board at the entrance appeared as if they were bond line structures. 
+    # Image1 # clear 
+    __AudioBG1
+    ~ Expression = neutral
+    
+    -   I crossed the boundary with mixed feelings and was at once taken aback by the differences. It not only looked different, but also felt different. 
     -   (opts)
     *   (look) [Look at the surroundings]
-        A rivulet ran along the well-beaten path, with some undergrowth. The conjugated sun, as it was called, was the discerning feature that separated the org chem land with the rest of the world. If you look up into the sky and can see the electrons whizzing around in a circle in a hexagonal shaped sun, you know you are in the land of organic chemistry.
+        The letters on the board at the entrance appeared as if they were bond line structures straight out of a chemistry textbook. 
+        A rivulet ran along the well-beaten path. The conjugated sun, as it was called, was the discerning feature that separated the org chem land with the rest of the world. If you look up into the sky and can see the electrons whizzing around in a circle in a hexagonal shaped sun, you know you are in the land of organic chemistry.
         {not people: -> opts}
     *   (people) [Look for other people]
         {look:My admiration was cut short when} I realized that compared to all my other adventures, this one was different. There was no one around. Everywhere I went till date, the entry points have always been happening.
         {not look: -> opts}
         
+    *   [Start Walking]
     -   __IncrementProgress()
         {DEBUG: 
             ->4Knot
         - else: -> END
         }
+        
 === 4Knot === 
 //Nomenclature thing, convo with shopkeeper.
+    ~ Expression = neutral
+
     -   Dad’s map felt heavy in my pocket. I started walking along the rivulet and wondered if my dad had a similar experience. It had only been 30 minutes since I started walking, when I came across what looked like a little shop.
     
     -   It looked desolate.
@@ -112,6 +125,9 @@ VAR DEBUG = false
 
 === 5Knot ===
 //Acid Dehydration 
+    
+    ~ Expression = confused
+    
     -   "Dehydrating agents. That’s what the few of us living here use to make water."
         "Make water? But isn’t there a rivulet…"
         "Filled with propanol, that’s what we make the water out of. The reaction is pretty simple, it goes something like this” 
@@ -129,11 +145,17 @@ VAR DEBUG = false
         "Well, that’s a good question. Truth be told, I do not know. It works though, and that’s what I have been drinking for all my life. I think I should tell you, in here, chemical reactions are not the same. All you need to do is to have the right ingredients and some imagination and you can make almost anything you want." 
 
         Bending down, "You’ll know once you try it".
+    
         
-        "That’d be 10 electrons", he said as he brought out a bottle.
+        "That’d be 3 electrons", he said as he brought out a bottle.
+        
+    ~ Expression = distressed
 
     *   ["...."]
     -   "...you don’t have any electrons on you, do you? Well...”, he said with a grin.
+    
+    ~ Expression = neutral
+    
         He continued, "I was about to go looking for some raw material I needed for making rations”
         "If you go over there” he said pointing to an overgrown patch of grass across the river
         "You will find a bunch of chemicals, find me some ethanoic acid and I will pay you for the work.”
@@ -188,13 +210,19 @@ VAR DEBUG = false
 === 7Knot ===
 //Into the acid base town
     # clear # Imagew2
+    __AudioBG2
+    ~ Expression = neutral
+    
     - By the time I reached the town gate, I felt my stomach growl. I realized I hadn’t eaten anything since morning. I decided to munch on my travel rations as I walked. 
     - The town was surprisingly much more alive than I had expected. It was as if there was a festival going on. Most of the people seemed to be going in the same direction.
-    *   [Follow the crowd] As I tailed the crowd, I could hear a low rumble growing. 
+    
+
+    *   [Follow the crowd] 
+        __AudioBG5    
+        As I tailed the crowd, I could hear a low rumble growing. 
     -   Except it wasn’t a rumble, but a cheer. In the middle of the town, was set up what seemed to me like a boxing ring.
     *   (look)[Look around.]
     *   [Ask someone about it.]
-    
     -   People flanked it on all four sides, shouting encouragements and insults at the creatures in the ring. {look: I couldn't figure out anything else.}
           
     - __IncrementProgress()
@@ -226,7 +254,8 @@ VAR DEBUG = false
     
     *   [Thank him and leave]
     
-    -   I thanked him again and looked at the building to see that indeed it was the town hall and it looked unoccupied at the moment.
+    -   __AudioBG2
+        I thanked him again and looked at the building to see that indeed it was the town hall and it looked unoccupied at the moment.
     
     -   Will have to wait for tomorrow.
     
@@ -338,9 +367,63 @@ VAR DEBUG = false
 //Meeting with Vance.
     -   I asked the people around and was soon standing in what looked like a pub, with Vance sitting alone at the counter.
         "Mr. Vance”, I began. He looked a little surprised at the interruption.
-    *    "Can I ask you a few more questions?”
+    -   (opts)
+    *   "Can I ask you a few more questions?”
+        "You can, of course. Whether I would answer or not though...”
+        -> opts
     *   “How do you predict the outcome of the acid base battles?”
     
+    -   "Why would you ask me?” 
+        
+    *   "I saw your picture in the hall of fame.”
+        -> D1
+    *   "I just felt like you'd know."
+        -> D2
+        
+    -   (D1)
+        "What were you doing in the hall of fame?”
+        -> cont
+    -   (D2)
+        "Well, I don't." Vance said.
+        *   "That can't be, you were in the hall of fame."
+        "Ah, so that's how it is. What were you doing in the hall of fame?"
+        -> cont
+        
+    -   (cont)
     
+    -   __IncrementProgress()
+    {DEBUG: 
+            ->14Knot
+        - else: -> END
+    }
+        
+        
+=== 14Knot ===
+//Vance tells you the trick
+    -   "I was asking the Chief about Greg Minerva and he took me to the hall…”
+        "You are related to that old Geezer?”
+    
+    *   "I am his son. Do you know him?”
+    
+    -    "No, not really. I was about your age when he came to town. I learned to predict the outcomes of the battles watching him. The people of this town could never figure it out though, even after I told them. They are a little weird in that way.”
+    
+    *   [Continue]
+    
+        __ShowLM2
+        
+    -   "Look, I will tell you only once okay. You are on your own after that. It’s pretty simple actually. In a battle of two chemicals, the more acidic will always win. I will tell you about some of the fighters to get you started, rest you figure out”
+    
+        RXN2
+        
+    *   [Thank Vance and leave]
+        __HideLM
+        
+    -   I tried to remember as much of it as I could and thanked Vance for his help.
+        As the sun set, the number of people around the arena started to increase.
+    
+        The betting process was pretty simple actually. You only had to go up to the counter, place the bet, and collect a slip. I heard a bell like sound and the fighters appeared on the arena.
+        
+    *    [Follow the crowd to the betting counters.]
+        I followed the crowd to the betting counters.
 
 -> END
