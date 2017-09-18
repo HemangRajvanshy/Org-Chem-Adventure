@@ -484,7 +484,7 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
         }
         
         <b> You bet {Bet} {Bet == 1: electron | electrons} </b>
-        Choose your bet:
+        Place your bet.
         VAR Left = 0
         ~ Left = randomleft()
         VAR Right = 0 

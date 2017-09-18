@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Game\Standard View\ImageSceneManager.cs" />
     <Compile Include="Assets\Scripts\Game\Standard View\LearnMoreButton.cs" />
     <Compile Include="Assets\Scripts\Game\Standard View\Standardview.cs" />
+    <Compile Include="Assets\Scripts\Game\Story Text\AcidBaseChoiceView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ChoiceGroupManager.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ChoiceGroupView.cs" />
     <Compile Include="Assets\Scripts\Game\Story Text\ChoiceView.cs" />

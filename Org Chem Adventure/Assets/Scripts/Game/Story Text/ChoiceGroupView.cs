@@ -9,6 +9,7 @@ public class ChoiceGroupView : MonoBehaviour {
     public List<ChoiceView> choiceViews;
     public ChoiceView choiceViewPrefab;
     public ImageChoiceView imageChoiceViewPrefab;
+    public AcidBaseChoiceView acidBaseChoiceView;
 
     public VerticalLayoutGroup verticalLayoutGroup
     {
@@ -33,9 +34,11 @@ public class ChoiceGroupView : MonoBehaviour {
     }
 
     private bool AcidBase = false;
+    private IList<Choice> choiceList;
 
     public void LayoutChoices(IList<Choice> choices)
     {
+        choiceList = choices;
         foreach (Choice choice in choices)
         {
             LayoutChoice(choice);
@@ -75,19 +78,18 @@ public class ChoiceGroupView : MonoBehaviour {
         }
     }
 
-    public ChoiceView LayoutChoice(Choice choice)
+    public void LayoutChoice(Choice choice)
     {
         string cont = choice.text.Trim();
         if (cont.Contains("_AB"))
         {
             if (!AcidBase)
                 SetupAcidBase();
-            return ImageChoiceSet(cont.Substring(9, 2), choice);
         }
         else if (cont.Contains("__IMG"))
         {
             cont = cont.Substring(5, 2);            
-            return ImageChoiceSet(cont, choice);
+            ImageChoiceSet(cont, choice);
         }
         else
         {
@@ -96,11 +98,10 @@ public class ChoiceGroupView : MonoBehaviour {
             choiceView.choiceGroupView = this;
             choiceView.LayoutText(choice);
             choiceViews.Add(choiceView);
-            return choiceView;
         }        
     }
 
-    private ChoiceView ImageChoiceSet(string cont, Choice choice)
+    private void ImageChoiceSet(string cont, Choice choice)
     {
         ImageChoiceView choiceView = Instantiate(imageChoiceViewPrefab);
         choiceView.transform.SetParent(transform, false);
@@ -108,28 +109,16 @@ public class ChoiceGroupView : MonoBehaviour {
         choiceView.SetChoice(choice);
         choiceView.SetImage(cont);
         choiceViews.Add(choiceView);
-        return choiceView;
     }
 
     private void SetupAcidBase()
     {
         AcidBase = true;
-        DestroyImmediate(verticalLayoutGroup, true);
-        //contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
         GameManager.Instance.game.avatar.Disappear();
-
-        HorizontalLayoutGroup hor = gameObject.AddComponent<HorizontalLayoutGroup>();
-        hor.spacing = 50;
-//        hor.childControlWidth = false;
-        hor.childForceExpandHeight = false;
-        hor.childForceExpandWidth = false;
-
-
-        RectTransform rectt = GetComponent<RectTransform>();
-        rectt.offsetMin = new Vector2(-255, rectt.offsetMin.y);
-        rectt.offsetMax = new Vector2(-20, rectt.offsetMax.y);
-
-        Canvas.ForceUpdateCanvases();
+        AcidBaseChoiceView acidView = Instantiate(acidBaseChoiceView);
+        acidView.transform.SetParent(Manager.transform, false);
+        acidView.choiceGV = this;
+        acidView.Setup(choiceList);
     }
 
     public void MakeChoice(Choice choice)
@@ -148,18 +137,7 @@ public class ChoiceGroupView : MonoBehaviour {
             else
                 choiceView.button.enabled = false;
         }
-        /*foreach (ChoiceView choiceView in choiceViews)
-        {
-            if (choiceView.choice != choice)
-                StartCoroutine(choiceView.FadeOut(0.4f));
-        }
-        if (choiceViews.Count > 1)
-            yield return new WaitForSeconds(0.25f);
-        foreach (ChoiceView choiceView in choiceViews)
-        {
-            if (choiceView.choice == choice)
-                yield return StartCoroutine(choiceView.FadeOut(0.6f));
-        }*/
+   
         foreach (ChoiceView choiceView in choiceViews)
         {
             Destroy(choiceView.gameObject);
