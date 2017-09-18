@@ -32,6 +32,8 @@ public class ChoiceGroupView : MonoBehaviour {
         }
     }
 
+    private bool AcidBase = false;
+
     public void LayoutChoices(IList<Choice> choices)
     {
         foreach (Choice choice in choices)
@@ -43,7 +45,8 @@ public class ChoiceGroupView : MonoBehaviour {
         //contentSizeFitter.enabled = false;
         foreach (ChoiceView choiceView in choiceViews)
         {
-            choiceView.rectTransform.sizeDelta = new Vector2(choiceView.rectTransform.sizeDelta.x, choiceView.rectTransform.sizeDelta.y + verticalLayoutGroup.spacing * 0.5f);
+            if(!AcidBase)
+                choiceView.rectTransform.sizeDelta = new Vector2(choiceView.rectTransform.sizeDelta.x, choiceView.rectTransform.sizeDelta.y + verticalLayoutGroup.spacing * 0.5f);
         }
     }
 
@@ -53,8 +56,8 @@ public class ChoiceGroupView : MonoBehaviour {
         Rect rec = GetComponent<RectTransform>().rect;
         RectTransform rectt = GetComponent<RectTransform>();
 
-        if (rec.height > 250)
-            rectt.localPosition = new Vector3 (rectt.localPosition.x, rectt.localPosition.y + rec.height - 250, rectt.localPosition.z);
+        if (rec.height > 240)
+            rectt.localPosition = new Vector3 (rectt.localPosition.x, rectt.localPosition.y + rec.height - 240, rectt.localPosition.z);
     }
 
     public void RenderChoices()
@@ -75,16 +78,16 @@ public class ChoiceGroupView : MonoBehaviour {
     public ChoiceView LayoutChoice(Choice choice)
     {
         string cont = choice.text.Trim();
-        if (cont.Contains("__IMG"))
+        if (cont.Contains("_AB"))
         {
-            cont = cont.Substring(5, 3);
-            ImageChoiceView choiceView = Instantiate(imageChoiceViewPrefab);
-            choiceView.transform.SetParent(transform, false);
-            choiceView.choiceGroupView = this;
-            choiceView.SetChoice(choice);
-            choiceView.SetImage(cont);
-            choiceViews.Add(choiceView);
-            return choiceView;
+            if (!AcidBase)
+                SetupAcidBase();
+            return ImageChoiceSet(cont.Substring(9, 2), choice);
+        }
+        else if (cont.Contains("__IMG"))
+        {
+            cont = cont.Substring(5, 2);            
+            return ImageChoiceSet(cont, choice);
         }
         else
         {
@@ -97,6 +100,37 @@ public class ChoiceGroupView : MonoBehaviour {
         }        
     }
 
+    private ChoiceView ImageChoiceSet(string cont, Choice choice)
+    {
+        ImageChoiceView choiceView = Instantiate(imageChoiceViewPrefab);
+        choiceView.transform.SetParent(transform, false);
+        choiceView.choiceGroupView = this;
+        choiceView.SetChoice(choice);
+        choiceView.SetImage(cont);
+        choiceViews.Add(choiceView);
+        return choiceView;
+    }
+
+    private void SetupAcidBase()
+    {
+        AcidBase = true;
+        DestroyImmediate(verticalLayoutGroup, true);
+        //contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
+        GameManager.Instance.game.avatar.Disappear();
+
+        HorizontalLayoutGroup hor = gameObject.AddComponent<HorizontalLayoutGroup>();
+        hor.spacing = 50;
+//        hor.childControlWidth = false;
+        hor.childForceExpandHeight = false;
+        hor.childForceExpandWidth = false;
+
+
+        RectTransform rectt = GetComponent<RectTransform>();
+        rectt.offsetMin = new Vector2(-255, rectt.offsetMin.y);
+        rectt.offsetMax = new Vector2(-20, rectt.offsetMax.y);
+
+        Canvas.ForceUpdateCanvases();
+    }
 
     public void MakeChoice(Choice choice)
     {

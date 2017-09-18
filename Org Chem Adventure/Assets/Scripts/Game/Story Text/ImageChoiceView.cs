@@ -11,7 +11,7 @@ public class ImageChoiceView : ChoiceView {
 	public void SetImage(string cont)
     {
         int n1 = Convert.ToInt32(cont[0] + "") - 1;
-        int n2 = Convert.ToInt32(cont[2] + "") - 1;
+        int n2 = Convert.ToInt32(cont[1] + "") - 1;
         Sprite img = choiceGroupView.Manager.ImageDB[n1].myList[n2];
         image = gameObject.GetComponent<Image>();
         image.sprite = img;

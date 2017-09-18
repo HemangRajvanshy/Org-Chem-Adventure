@@ -10,7 +10,7 @@ VAR DEBUG = false
 	* [6Knot] -> 6Knot
 	* [9Knot] -> 9Knot
 	* [11Knot] -> 11Knot
-	* [13Knot] -> 13Knot
+	* [15Knot] -> 15Knot
 - else:
 	// First diversion: where do we begin?
  nonnono
@@ -174,16 +174,16 @@ VAR DEBUG = false
     -   They looked somewhat similar, but they were not the same. Ethanoic Acid, what did it look like? 
     
     -   (ques)
-    *   __IMG1-1
+    *   __IMG11
         This is ethanol 
         -> wrong
-    *   __IMG1-2
+    *   __IMG12
         This is ethanal 
         -> wrong
-    *   __IMG1-3
+    *   __IMG13
         This is propanoic acid 
         -> wrong
-    *   __IMG1-4
+    *   __IMG14
         -> right
         
     = wrong
@@ -315,7 +315,12 @@ VAR DEBUG = false
     
 === 11Knot === 
 //Inside hall of fame
-    -   He gestured for me to follow him. We went out into the building and up a flight of stairs. He held open a door to a carpeted room, with the walls full of life size photos of people. Some of the paintings looked older than others. 
+    #Imagew4
+    -   He gestured for me to follow him. We went out into the building and up a flight of stairs. 
+        
+        __AudioBG4
+    
+    He held open a door to a carpeted room, with the walls full of life size photos of people. Some of the paintings looked older than others. 
     The chief stopped in front of one painting and said,
         "Is this the person you are looking for?” 
     *   [Continue]
@@ -349,6 +354,8 @@ VAR DEBUG = false
         "Yes, you can rent one from the north-eastern side of the town. It will cost you about 50 electrons.”
         "I see. Thank you.” I bowed and took my leave.
     
+    __AudioBG2
+    
     -   The conjugate sun was overhead when I came out of the town hall. 50 electrons. After the nights stay all I was left with was 3. The chief said that the champions made a fortune out of the acid-base gambling. Could I, maybe, do the same?
     *   I don't think so.
     *   Probably.
@@ -365,6 +372,7 @@ VAR DEBUG = false
     
 === 13Knot ===
 //Meeting with Vance.
+    #Imagew3
     -   I asked the people around and was soon standing in what looked like a pub, with Vance sitting alone at the counter.
         "Mr. Vance”, I began. He looked a little surprised at the interruption.
     -   (opts)
@@ -383,14 +391,14 @@ VAR DEBUG = false
     -   (D1)
         "What were you doing in the hall of fame?”
         -> cont
+        
     -   (D2)
         "Well, I don't." Vance said.
         *   "That can't be, you were in the hall of fame."
         "Ah, so that's how it is. What were you doing in the hall of fame?"
-        -> cont
-        
+
     -   (cont)
-    
+
     -   __IncrementProgress()
     {DEBUG: 
             ->14Knot
@@ -401,6 +409,7 @@ VAR DEBUG = false
 === 14Knot ===
 //Vance tells you the trick
     -   "I was asking the Chief about Greg Minerva and he took me to the hall…”
+    
         "You are related to that old Geezer?”
     
     *   "I am his son. Do you know him?”
@@ -425,5 +434,94 @@ VAR DEBUG = false
         
     *    [Follow the crowd to the betting counters.]
         I followed the crowd to the betting counters.
+    
+    *   [Let the betting begin]
+    
+    -   __IncrementProgress()
+    {DEBUG: 
+            ->15Knot
+        - else: -> END
+    }
+    
+    
+LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IMG28 , __IMG29 
+
+== function randomleft ==
+{shuffle:
+    - ~ return __IMG21
+    - ~ return __IMG26
+    - ~ return __IMG23
+    - ~ return __IMG24
+    - ~ return __IMG28
+}
+
+== function randomright ==
+{shuffle:
+    - ~ return __IMG22
+    - ~ return __IMG27
+    - ~ return __IMG25
+    - ~ return __IMG29
+}
+
+
+
+=== 15Knot ===
+//Acid Base Battle, begin!
+    #Imagew2
+    ~ Expression = neutral
+    VAR electrons = 3
+    __AudioBG3
+    
+    -   I decided to bet half my electrons every time and play it safe. 
+        <b> You have {electrons} electrons </b>
+        
+    - (Fight)
+        
+        VAR Bet = 0
+        ~ Bet = electrons/2
+        {Bet == 0:
+            ~ Bet = 1
+        }
+        
+        <b> You bet {Bet} {Bet == 1: electron | electrons} </b>
+        Choose your bet:
+        VAR Left = 0
+        ~ Left = randomleft()
+        VAR Right = 0 
+        ~ Right = randomright()
+        
+        + _AB {Left}
+            {Left > Right: -> win | -> lose}
+            
+        + _AB {Right}
+            {Left < Right: -> win | -> lose}
+            
+    - (win)
+        You won the bet.
+        ~ electrons = electrons + Bet*2
+        
+        -> cont    
+        
+    - (lose)
+        You lost the bet.
+        ~ electrons = electrons - Bet
+        -> cont    
+        
+    - (cont)
+        <b> You  now  have  {electrons}  {electrons == 1: electron | electrons} </b>
+    
+    - {electrons == 0: -> VanceGiveElectron} 
+    - {electrons < 100: -> Fight | -> done}
+    
+    - (VanceGiveElectron)
+        "What, you are out of electrons {stopping: already|again}?" 
+        "Here take some electrons"
+        ~ electrons = 4
+        <b> Vance gave you {electrons} electrons </b>
+        * [Continue Betting]
+        -> Fight
+    
+    - (done)
+        Acid base battles are over!
 
 -> END

@@ -7,22 +7,31 @@ using Ink.Runtime;
 public class AvatarManager : MonoBehaviour {
 
     public Animator anim;
+
     public Image Avatar;
     public Sprite Neutral;
     public Sprite Happy;
     public Sprite Confused;
 
+    private bool onScr;
 
     public void Appear()
     {
         anim.SetBool("OnScreen", true);
+        onScr = true;
         //gameObject.SetActive(true);
     }
 
     public void Disappear()
     {
         anim.SetBool("OnScreen", false);
+        onScr = false;
         //gameObject.SetActive(false);
+    }
+    
+    public bool OnScreen()
+    {
+        return onScr;
     }
 
     public void UpdateExpression(Story story)

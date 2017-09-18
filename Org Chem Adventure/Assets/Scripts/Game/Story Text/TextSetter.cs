@@ -93,7 +93,11 @@ public class TextSetter : MonoBehaviour
     public void Type(string TargetText)
     {
         cor = TypeText(TargetText);
-        StartCoroutine(cor); 
+        StartCoroutine(cor);
+        if (TargetText.Contains("<b>"))
+        {
+            FinishTyping(TargetText);
+        }
     }
 
     public void FinishTyping(string TargetText)
