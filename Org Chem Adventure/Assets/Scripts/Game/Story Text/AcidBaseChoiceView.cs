@@ -61,17 +61,15 @@ public class AcidBaseChoiceView : MonoBehaviour {
 
     public void ChooseLeft()
     {
-        GameManager.Instance.game.ChooseChoiceIndex(choice1.index);
-        StartCoroutine(FadeOutAndContinue());
+        StartCoroutine(FadeOutAndContinue(choice1));
     }
 
     public void ChooseRight()
     {
-        GameManager.Instance.game.ChooseChoiceIndex(choice2.index);
-        StartCoroutine(FadeOutAndContinue());
+        StartCoroutine(FadeOutAndContinue(choice2));
     }
 
-    IEnumerator FadeOutAndContinue()
+    IEnumerator FadeOutAndContinue(Choice choice)
     {
         yield return new WaitForSeconds(0.25f);
         CanvasGroup group = GetComponent<CanvasGroup>();
@@ -80,6 +78,8 @@ public class AcidBaseChoiceView : MonoBehaviour {
             group.alpha -= Time.deltaTime * 2;
             yield return new WaitForEndOfFrame();
         }
+
+        GameManager.Instance.game.ChooseChoiceIndex(choice.index);
 
         Destroy(choiceGV.gameObject);
         yield return new WaitForSeconds(0.1f);

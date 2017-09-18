@@ -1,3 +1,5 @@
+INCLUDE OrgChem2.ink
+
 VAR money = 0
 
 LIST Expressio = neutral, happy, confused, distressed
@@ -429,8 +431,10 @@ VAR DEBUG = false
         
     -   I tried to remember as much of it as I could and thanked Vance for his help.
         As the sun set, the number of people around the arena started to increase.
-    
+        
+        __ShowLM6
         The betting process was pretty simple actually. You only had to go up to the counter, place the bet, and collect a slip. I heard a bell like sound and the fighters appeared on the arena.
+        __HideLM
         
     *    [Follow the crowd to the betting counters.]
         I followed the crowd to the betting counters.
@@ -444,8 +448,8 @@ VAR DEBUG = false
     }
     
     
+    
 LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IMG28 , __IMG29 
-
 == function randomleft ==
 {shuffle:
     - ~ return __IMG21
@@ -454,7 +458,6 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
     - ~ return __IMG24
     - ~ return __IMG28
 }
-
 == function randomright ==
 {shuffle:
     - ~ return __IMG22
@@ -462,8 +465,6 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
     - ~ return __IMG25
     - ~ return __IMG29
 }
-
-
 
 === 15Knot ===
 //Acid Base Battle, begin!
@@ -497,12 +498,14 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
             {Left < Right: -> win | -> lose}
             
     - (win)
+    __AudioSFX1
         You won the bet.
         ~ electrons = electrons + Bet*2
         
         -> cont    
         
     - (lose)
+    __AudioSFX2
         You lost the bet.
         ~ electrons = electrons - Bet
         -> cont    
@@ -522,6 +525,28 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
         -> Fight
     
     - (done)
-        Acid base battles are over!
+        <b> You successfully made 100 electrons </b>
+        
+        *   [Stop Betting]
+    -   __IncrementProgress()
+    {DEBUG: 
+            ->16Knot
+        - else: -> END
+    }
+    
+    
+=== 16Knot ===
+//On to the next town
+    # clear 
+    __AudioBG2
+    
+    -   It was probably past midnight by the time I made my way out. People had stopped betting to watch me. Maybe they even bet on whether I would win the next bet? Who knows. Too sleepy to think about anything, I quickly went back to the 2 electron board house and dropped asleep. 
+        
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->17Knot
+        - else: -> END
+    } 
 
+    
 -> END
