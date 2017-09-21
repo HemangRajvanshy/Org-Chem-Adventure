@@ -1,6 +1,5 @@
 
 
-
 === 17Knot ===
     # Imagew3
     ~ Expression = neutral
@@ -74,6 +73,7 @@
         - else: -> END
     } -> DONE
         
+        
 === 19Knot ===
 //At the dinner table
     -   I washed my face and joined them at the dinner table. Besides Mr and Mrs. Walter, there was also a little boy about 10 years old. He looked a little annoyed on seeing me but did not say anything. 
@@ -112,7 +112,66 @@
         - else: -> END
     } -> DONE
 
+
 === 20Knot ===
 //The kiddo speaks!
+
+    -   The kid who had been quiet all this while said, "That’s the person who taught the Chief Chlorination. We didn’t have to buy it from the capital anymore. They taught us in school.”
+    
+    -   "Oh yes, that’s right. It has been what, ten years since and I had quite but forgotten.” Mr. Walter said standing, his eyes widened as he seemed to register something.
+    
+        "This is it, your old man taught the chief chlorination, you can help us. Let’s take you to see the chief” he continued.
+    -   "Dear, it’s very late now.” Mrs. Walter said.
+        Mr. Walter sat back down and turned to look at me, "Will you help us?” 
+        
+    *   "I will, of course, but what do you need help with?”
+    
+    -   "The chlorinator, he’s the one who converts the methane we collect from livestock into dichloromethane. It’s the fluid we use for making these birds. We will be out of it by tomorrow and I don’t know what will happen then.” 
+    
+    -   I still wasn't really sure what I was being asked to do.
+       However, this was an interesting development. I will probably be able to collect some useful information.
+    *   [Continue]
+    
+    __AudioBG6
+    
+    -   I promised Mr. Walter to accompany him to the town hall in the morning. 
+        The rest of the night passed uneventfully.
+        
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->21Knot
+        - else: -> END
+    } -> DONE
+
+=== 21Knot ===
+//To the town hall 
+# imagew5 # clear
+    -   Next morning, Mr. Walter was already ready to leave when I went in for breakfast. I couldn’t very well enjoy my meal with him fidgeting about. 
+    
+    *   [Go to Town Hall]
+    
+    -   The moment I stepped out of the gate, I realized why the town was called the light town.
+        The sunlight was the most intense I had seen till date, to the point that it was blinding to even look up.
+        Mr. Walter handed me a hat and put one on himself. I noticed that the mirrors I saw last night were actually decreasing the amount of light in the streets instead of increasing it. 
+        
+    -   Around the town hall, I could see people rushing around with a sense of urgency. Clearly, everything was not in its usual order.
+        The four men listened to Mr. Walter with serious faces and glanced at me nervously from time to time. They all seemed to agree with Mr. Walter and soon I was following them into a house behind the town hall.
+    -    A maid greeted us and led us to a large room with a bed, on which the chief rested. 
+    *   [Continue]
+     He looked around fifty years old with some gray hair and had a handsome face with green eyes. 
+     I wondered what sort of illness he had, and thought maybe I should ask them what they usually did when the chief is unwell.
+     
+    *  [Ask]
+        That's probably not such a great idea. 
+         
+    *  [Don't Ask]
+        I decided against it. 
+    
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->22Knot
+        - else: -> END
+    } -> DONE
+    
     
 -> END
