@@ -173,5 +173,76 @@
         - else: -> END
     } -> DONE
     
+=== 22Knot ===
+//In the town hall.
+    #imagew6
+    -   The four men and Mr. Walter explained the situation to the chief and left the room. 
+    *   [Continue]
+        "This must be fate.” The chief said in a weak voice. 
+        He showed me an old notebook, with a reaction mechanism scribbled on it. 
+        "Even though I have been doing it for nine years now, I still need to look at the notebook.” he said.
+    -   The chief described the process of making dichloromethane to me and even though the reaction mechanism was simple enough, the process of actually having to perform the steps new to me.
+        
+    __ShowLM3
+
+        RXN3
+    
+    *   "Alright, I think I can make it."
+    -   "Are you sure? It took me a lot longer.” he said.
+    __HideLM
+        "We’ll know once we try it. Do you know what happened to Dad?” I asked.
+        "We haven’t heard from him since. We saw him off at the northern town gate where he left for the capital.”
+        
+    *   "How do you get to the capital?”
+    
+    -   "Generally by car. I will help you in your quest once all of this is over.”
+        
+    *    "I can’t wait that long. Maybe I will teach someone else to make dichloromethane.”
+    
+    -   "It’s not so easy. It’s only because you are his son that you were able to understand it so quickly.” the chief said gravely.
+        He continued, "I have tried more than once to teach it to someone else for times like these.”
+    
+        I can’t wait here, I thought.  
+    
+    *   "I will try.” 
+    *   "I will do it, somehow."
+    
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->23Knot
+        - else: -> END
+    } -> DONE
+
+       
+=== 23Knot === 
+# clear #imagew5
+    -   Mr. Walter was waiting with the four other men as I came out of the house with the notebook in my hand. 
+    *   "Mr. Walter, can you bring your son here?”
+    
+    -    He looked confused, "Sure, but why?”
+    
+    *   "I will teach him how to make dichloromethane.”
+        
+    -   In the middle of the town hall was the place where the chlorination was performed. 
+        All the mirrors on the streets were actually carefully aligned to direct light to a single point. A point a few metres above the town hall, where a large parabolic mirror collected all the light and beamed it to a single spot, like a laser. 
+        That is where the photochlorination took place. 
+        As I waited, I thought about how teaching this kid could tie him to this job for the rest of his life. I think I will ask him if he wants to do it.
+    
+    -   Mr. Walter appeared at the door and hustled the child in. He closed the door and left. The boy stood still, staring at the beam of light making a bright spot on the floor. 
+    
+    *   "Hello, I am Ren. You are?” 
+    -   "Harold."
+    *   "Right Harold, so do you want to do this?["] You might have to do it for a very long time.”
+        
+    -    "Yes, I will do it.”, he said with a determined face.
+    
+    *   "Alright then, I will show it to you.” 
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->23Knot
+        - else: -> END
+    } -> DONE
+    
+=== 24Knot ===
     
 -> END
