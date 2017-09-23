@@ -39,7 +39,7 @@
     
 === 18Knot ===
 // At the inn
-    #imagew4
+    #Imagew4
     
      -  She asked me why I was travelling and I told her my reasons. She discussed the situation with her husband and told me that I was welcome to stay with them.
         
@@ -145,7 +145,7 @@
 
 === 21Knot ===
 //To the town hall 
-# imagew5 # clear
+# Imagew5 # clear
     -   Next morning, Mr. Walter was already ready to leave when I went in for breakfast. I couldn’t very well enjoy my meal with him fidgeting about. 
     
     *   [Go to Town Hall]
@@ -175,7 +175,7 @@
     
 === 22Knot ===
 //In the town hall.
-    #imagew6
+    #Imagew6
     -   The four men and Mr. Walter explained the situation to the chief and left the room. 
     *   [Continue]
         "This must be fate.” The chief said in a weak voice. 
@@ -215,7 +215,7 @@
 
        
 === 23Knot === 
-# clear #imagew5
+# clear #Imagew5
     -   Mr. Walter was waiting with the four other men as I came out of the house with the notebook in my hand. 
     *   "Mr. Walter, can you bring your son here?”
     
@@ -239,10 +239,222 @@
     *   "Alright then, I will show it to you.” 
     -  __IncrementProgress()
     {DEBUG: 
-            ->23Knot
+            ->24Knot
         - else: -> END
     } -> DONE
     
 === 24Knot ===
+//Performing photochlorination
+    __ShowLM3
+    
+    -   <b> You made some chlorine free radicals from the light source. </b>
+    
+        What do I join the chlorine free radical with?
+    - (opts)
+    *   __IMG31
+    <b> That just made a chlorine molecule again. </b>
+        ~ Expression = confused
+        -> opts
+    *   __IMG32
+        <b> You made a methyl radical </b>
+    *   __IMG33
+        <b> That just made a chlorine radical again. </b>
+        ~ Expression = confused
+        -> opts
+        
+    ~ Expression = neutral
+    -   This is going alright. I have got a methyl free radical. 
+        Now what?
+        
+    -   (opts2)
+        *   React it with a chlorine molecule.
+            <b> You made chloromethane </b>
+        *   React it with a methane molecule.
+            <b> That just made a methane free radical again. </b>
+            -> opts2
+        *   React it with another methyl radical.
+            <b> That made Ethane.</b>
+            Not ver useful right now.
+            -> opts2
+            
+    -   Right, so I have got chloromethane. I should be able to repeat the same process and substitute another Chlorine atom on it.
+    
+    <b> You have a chlorine free radical. </b>
+        What do I react it with?
+     
+    -   (opts3)   
+    *   __IMG32 //methane
+        <b> You made a methyl radical </b>
+        That's not what I need. 
+        ~ Expression = confused
+        -> opts3
+    *   __IMG33 //Cl2
+        <b> That just made a chlorine radical again. </b>
+        ~ Expression = confused.
+         -> opts3
+    *   __IMG34 //chloromethane
+        <b> You made a chloromethyl radical </b>
+    
+    ~ Expression = neutral
+    -   Almost there!
+    
+    <b> You have a chloromethyl radical </b>
+    
+    - (opts4)
+    *   [React it with a chlorine molecule]
+        <b> You made dichloromethane </b>
+        
+    *   [React it with a methane molecule]
+        <b> You made chloromethane again. </b>
+        ~ Expression = confused
+        -> opts4
+        
+    *   [React it with a methyl radical]
+        <b> You made chloroethane </b>
+        ~ Expression = confused
+        -> opts4
+    
+    ~ Expression = happy
+    
+    This wasn't so hard afterall.
+    
+    *   [Continue]
+
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->25Knot
+        - else: -> END
+    } -> DONE
+    
+    
+=== 25Knot ===
+//After
+    # clear # Imagew2
+    ~ Expression = neutral    
+
+    -   I understood very quickly what the chief was trying to say. The people here were different. 
+        The light coming in through the reflector had almost
+        disappeared by the time Harold felt like he understood it.
+        I copied the reaction mechanism from the Chief’s notebook into another notebook.  
+    
+    *   [Leave town hall]
+    
+    - We left the building and saw Mr. Walter sitting on the staircase at the entrance. He got up as we approached him, "How did it go?” he asked.
+    *   "Good.” [] I said as we continued to walk.
+    
+    -   "You guys go ahead, I will return the chief’s notebook and ask him about travel arrangements for tomorrow morning.”
+
+    -   "Don’t give up just yet! You only tried for one day.” Mr Walter said wildly waving his hands.
+    ~ Expression = confused
+    *  "What are you saying? Harold can make dichloromethane without me.”
+    ~ Expression = neutral
+    
+    -   "What? Already?” Mr Walter said looking at Harold .
+    Harold nodded slightly, without turning his head.
+
+    The chief was just as surprised to hear that I was ready to leave tomorrow.
+    Nevertheless he asked the maid to have his own car ready and the driver informed to take me to the capital next morning. He told me a few things about the capital. 
+    
+    *   [Continue]
+    
+    -   Next morning, I left after breakfast. 
+        Mrs. Walter declined to take payment for the services and told me I was welcome to stay again on my way back.
+        Something of a crowd had gathered to see me off at the town hall, where the car waited. 
+        Mr. Walter wished me luck and gave me one of those birds. He said this one was a charm to keep travelers safe. The birds looked the same to me though. 
+        I informed the chief about my departure and wished him good health. 
+
+    <b> The capital should have the information I am looking for. I told myself as the car sped through the northern town gate. </b>
+    
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->26Knot
+        - else: -> END
+    } -> DONE
+
+=== 26Knot ===
+//In the capital
+#Imagew3
+    -   We reached the capital on the afternoon of the following day. Even though the car was relatively new, the mountainous terrain did not allow for higher speeds. 
+        The car dropped me in front of the official guest house, where I was going to stay—thanks to a letter the chlorinator wrote for me. 
+
+    *  [Look Around]
+        The buildings in the capital, unlike the other towns, looked much more well maintained. 
+    *  [Enter Guest House]
+
+    -   The housekeeper at the guest house took the letter from me and asked me to wait in the common area. 
+        The interior of the guest house was much more like that of buildings outside the land of organic chemistry when compared to the other buildings I had seen here. 
+        The housekeeper returned with the letter and led me to a room on the first floor. 
+
+    -   "I will be in the common area, if you need anything sir.” he said, as he bowed and closed the door behind him.
+
+    -   Just as I was about to place my bag on the table, I noticed a round, green little football like creature sticking out of the top corner of the room. 
+        
+        It did not move, only hovered in the air near the corner.
+    
+    -   (opts)
+    *   [Try to get a closer look]
+    
+        It looked like one of those acid-base creatures that I saw fighting in the acid-base town. 
+        -> opts
+        
+    *   [Inch out of the room]
+    
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->27Knot
+        - else: -> END
+    } -> DONE
+    
+=== 27Knot === 
+#Imagew4
+    -   I inched out of the room, having guessed that the monster was probably asleep. 
+        I found the housekeeper wiping dishes in the kitchen of the common area. 
+    
+    -    "Can I help you with something?” he asked.
+    *   [Continue]
+    -   I imagined a football in my hands, "There’s this thing, about this big, green in color…” 
+        "Right, that’s a nucleophile.” He said as if that was not at all unusual.
+        "There’s one in about every room of the building, I should say probably in every building in the city. They are not harmful, at least not to us. They are a lot more harmful to the buildings though, or so I have been told.” I still looked unconvinced.
+        "They won’t move from their spot. Look there’s one up there as well.” he said pointing to a similar creature in the corner, much less conspicuous due to its color.
+        
+    *   "So what are they doing there?” I asked.
+    
+    -    "I don’t really know. They just appeared all over the city last week.”
+        I nodded as if that made sense to me. I certainly wasn’t very eager to go back to the room with just me and the green thing. 
+        I decided to start looking, 
+    *    "Can I find the chief in the city hall over there?”[] I asked pointing in the general direction.
+
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->28Knot
+        - else: -> END
+    } -> DONE
+  
+    
+=== 28Knot ===
+    
+    -   "Chief? Oh, the governor. His office is in the city hall, yes. But I don’t know much about it.”
+
+        I went into the city hall and was quickly directed to the office of the governor’s assistant.
+        
+        *   [Enter the room]
+        
+        -   The room was full of all sorts of papers and books, and the assistant was drooped over one such piece of paper. He noticed me when I knocked at the now open door. 
+        
+        I gave him the letter I had received, explaining the situation. As he read through the letter, I noticed that there weren’t any of those nucleophiles in the city hall. 
+        "Greg Minerva…”
+        
+        *   [Continue]
+        
+        -   "I think that’s him...let me check…” he mumbled as he pulled out an old looking book out of the big book shelf behind him.
+            He flipped through it for a while and stopped, looking satisfied with what he found. 
+            "Right, so Greg Minerva was made one of the wizards of the land of Organic Chemistry” 
+        *   "And?” []I urged him to continue.
+        -   "And that’s all I know. Wizards report directly to the Governor and information about their location and missions is kept confidential.”
+        
+        -   Of course I had no idea what it was supposed to mean to be a wizard, neither did I care.
+        
+        *   "So then, may I go see the Governor?” [] I asked. 
+
     
 -> END
