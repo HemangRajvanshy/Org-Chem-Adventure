@@ -10,9 +10,9 @@ VAR DEBUG = false
 	IN DEBUG MODE!
 	* [1Knot] -> 1Knot
 	* [6Knot] -> 6Knot
-	* [9Knot] -> 9Knot
 	* [11Knot] -> 11Knot
 	* [15Knot] -> 15Knot
+	* [30Knot] -> 29Knot
 - else:
 	// First diversion: where do we begin?
  nonnono
