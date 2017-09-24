@@ -47,7 +47,7 @@ public class ContentView : MonoBehaviour
             setter.SecondsBetweenCharacters = 1 / speed;
     }
 
-     protected virtual void Update()
+    protected virtual void Update()
     {
         if(setter.typing)
         {
@@ -58,6 +58,8 @@ public class ContentView : MonoBehaviour
                 //text.text = setter.text;
             }
         }
+        if (!setter.typing)
+            Destroy(gameObject.GetComponent<ContentView>());
     }
 
     public void LayoutText(string content)

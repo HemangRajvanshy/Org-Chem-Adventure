@@ -385,7 +385,7 @@ VAR DEBUG = false
     
 === 13Knot ===
 //Meeting with Vance.
-    #Imagew3
+    # Imagew3 # clear
     -   I asked the people around and was soon standing in what looked like a pub, with Vance sitting alone at the counter.
         "Mr. Vance”, I began. He looked a little surprised at the interruption.
     -   (opts)
@@ -510,7 +510,7 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
             
     - (win)
     __AudioSFX1
-        OrgChemLevel += 1
+        ~ OrgChemLevel += 1
         You won the bet.
         ~ electrons = electrons + Bet*2
         
@@ -518,7 +518,7 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
         
     - (lose)
     __AudioSFX2
-        OrgChemLevel -= 1
+        ~ OrgChemLevel -= 1
         You lost the bet.
         ~ electrons = electrons - Bet
         -> cont    
