@@ -5,8 +5,8 @@
     
     -   Next morning, I was ready to leave the town with enough electrons to pay for the ride.
     
-    -   [Go to next town]
-        I thanked Vance and The Chief for their help and left for thetown of light.
+    *   [Go to next town]
+    -    I thanked Vance and The Chief for their help and left for thetown of light.
         
     -   The car was old and slow and so it took a little longer than a day to reach the town. 
         
@@ -198,7 +198,7 @@
         
     *    "I can’t wait that long. Maybe I will teach someone else to make dichloromethane."
     
-    -   "It’s not so easy. It’s only because you are his son that you were able to understand it so quickly." the chief said gravely.
+    -   "It’s not so easy. It’s only because you are his son that you were able to understand it so quickly," the chief said gravely.
         He continued, "I have tried more than once to teach it to someone else for times like these."
     
         I can’t wait here, I thought.  
@@ -244,6 +244,7 @@
     
 === 24Knot ===
 //Performing photochlorination
+    # Image7
     __ShowLM3
     
     -   <b> You made some chlorine free radicals from the light source. </b>
@@ -273,7 +274,7 @@
             -> opts2
         *   React it with another methyl radical.
             <b> That made Ethane.</b>
-            Not ver useful right now.
+            Not very useful right now.
             -> opts2
             
     -   Right, so I have got chloromethane. I should be able to repeat the same process and substitute another Chlorine atom on it.

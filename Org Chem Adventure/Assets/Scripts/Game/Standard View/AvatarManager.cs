@@ -45,6 +45,8 @@ public class AvatarManager : MonoBehaviour {
             Avatar.sprite = Neutral;
         else if (val == "happy")
             Avatar.sprite = Happy;
+        else if (val == "confused")
+            Avatar.sprite = Confused;
         else
         {
             Debug.Log(val + " Expression not found");

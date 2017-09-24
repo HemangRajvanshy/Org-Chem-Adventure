@@ -11,7 +11,7 @@ VAR DEBUG = false
 	* [1Knot] -> 1Knot
 	* [6Knot] -> 6Knot
 	* [11Knot] -> 11Knot
-	* [15Knot] -> 15Knot
+	* [15Knot] -> 24Knot
 	* [30Knot] -> 29Knot
 - else:
 	// First diversion: where do we begin?
@@ -29,6 +29,7 @@ VAR DEBUG = false
     - 	Dear Mom,
         __TutS1
 		*	[Today I embark on a new adventure] 
+
 		    __AudioBG0
             Today I embark on a new adventure. My journey through the various worlds has finally brought me to one of the most dangerous yet bountiful of lands, to the magical land of organic chemistry. I know how much this worries you, you have always told me to stay away from this land, what this land did to dad….
             But believe me, I will be fine. I will be back, very soon. 
@@ -328,7 +329,7 @@ VAR DEBUG = false
     *   [Continue]
     
     -   That was a picture of dad alright, he was even wearing the same clothes that he wore on the day he left home, 9 years ago. Below the picture it read, "Greg Minerva, Champion of 15 battles” I wondered what battles he fought. 
-        "Yea, that’s him.” I said.
+        "Yea, that’s him,” I said.
     
     -   (opts)
     *   (where)"Do you know where he is now?”
@@ -336,7 +337,7 @@ VAR DEBUG = false
     *   (what)"What does the plague mean?”
         "Oh, this is the hall of fame for the champions of the acid-base battles.”
         * * "So did he fight those creatures I saw in the arena last night?”
-            "No, of course not.” he said with a chuckle.
+            "No, of course not,” he said with a chuckle.
             "The champions in the hall are masters of gambling. They predicted the outcome of the battles correctly and made themselves a fortune”
             {not where: -> opts}
     -   As the chief was talking, another portrait caught my eye. It was Vance, a little younger and neatly dressed. The plague read, "Vance Gaston, Champion of 20 battles”
