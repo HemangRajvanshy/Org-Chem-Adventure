@@ -20,7 +20,7 @@ public class Outro : MonoBehaviour {
         GameManager.Instance.game.standardView.CloseWithAnim();
         GameManager.Instance.game.avatar.Disappear();
 
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.6f);
 
         CanvasGroup group = OutroObj.GetComponent<CanvasGroup>();
 
@@ -43,6 +43,11 @@ public class Outro : MonoBehaviour {
         rateUs.AddDismissListener(() => { Debug.Log("rate us dialog dismissed :("); });
         rateUs.Show();
 
-        Debug.Log("Enable the facebook thing");
+        FacebookThing.SetActive(true);
+    }
+
+    public void FacebookClick()
+    {
+        Application.OpenURL("https://www.facebook.com/orgchemadv");
     }
 }

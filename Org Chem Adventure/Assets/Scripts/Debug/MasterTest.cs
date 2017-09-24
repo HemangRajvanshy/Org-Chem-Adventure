@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class MasterTest : MonoBehaviour
 {
-//#if UNITY_EDITOR
+#if UNITY_EDITOR
     public bool ClearSaveOnPlay = false;
     public bool JumpToKnot = false;
     public int Knot;
@@ -34,7 +34,7 @@ public class MasterTest : MonoBehaviour
             test.gameObject.SetActive(true);
 
     }
-//#endif
+#endif
 
     
 }
