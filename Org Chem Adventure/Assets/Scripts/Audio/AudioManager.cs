@@ -70,8 +70,11 @@ public class AudioManager : MonoBehaviour
         while (BGM.volume < vol)
         {
             BGM.volume += Time.deltaTime*(0.3f);
-            if (BGM.clip.name == "Crowd")
-                BGM.volume -= Time.deltaTime * (0.2f);
+            if (BGM.clip != null)
+            {
+                if (BGM.clip.name == "Crowd")
+                    BGM.volume -= Time.deltaTime * (0.2f);
+            }
             yield return new WaitForEndOfFrame();
         }
     }

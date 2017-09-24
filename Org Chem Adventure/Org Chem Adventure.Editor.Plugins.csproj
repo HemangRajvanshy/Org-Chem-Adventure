@@ -149,9 +149,18 @@
     <Compile Include="Assets\Plugins\Ink\Editor\Ink Settings\InkSettingsEditor.cs" />
     <Compile Include="Assets\Plugins\Ink\Editor\Player Window\InkPlayerWindow.cs" />
     <Compile Include="Assets\Plugins\Ink\Editor\Tools\InkEditorUtils.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Editor\MNP_Instalation.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Editor\MNP_PlatformMenu.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Editor\MNP_PlatformSettingsEditor.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Editor\MNP_VersionsManager.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Editor\MNPInit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Ink\Resources\InkDefaultTemplate.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\mobile-native-popups.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\mobile-native-popups.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\Versions\MNP_VersionInfo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

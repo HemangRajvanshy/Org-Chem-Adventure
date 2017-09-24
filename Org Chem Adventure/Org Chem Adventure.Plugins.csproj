@@ -107,9 +107,32 @@
     <Compile Include="Assets\Plugins\Ink\InkRuntime\VariableReference.cs" />
     <Compile Include="Assets\Plugins\Ink\InkRuntime\VariablesState.cs" />
     <Compile Include="Assets\Plugins\Ink\InkRuntime\Void.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Example\MNFeaturePreview.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Example\MNUseExample.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNP.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNP_Config.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNP_PlatformSettings.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNPopup.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\MNRateUsPopup.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\UI\MNP_EditorTesting.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\UI\MNP_EditorUIController.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Core\UI\MNP_UIButton.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Enum\MNAndroidDialogTheme.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Enum\MNDialogResult.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\Base\MNAndroidNative.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\Base\MNProxyPool.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Platfroms\AndroidImpl\PopUps\MNAndroidAlert.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Platfroms\IOSImpl\PopUps\base\MNIOSNative.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Platfroms\IOSImpl\PopUps\MNIOSAlert.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Utils\MNP_Files.cs" />
+    <Compile Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Scripts\Utils\MNP_Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Ink\Resources\InkDefaultTemplate.txt" />
+    <None Include="Assets\Plugins\StansAssets\Modules\MobileNativePopUps\Documentation\ReadMe.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\mobile-native-popups.jar.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\NativeLibraries\Android\mobile-native-popups.txt" />
+    <None Include="Assets\Plugins\StansAssets\Support\Versions\MNP_VersionInfo.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
