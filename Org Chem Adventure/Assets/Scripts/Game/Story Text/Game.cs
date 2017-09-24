@@ -147,7 +147,7 @@ public class Game : MonoBehaviour
             if (content.Contains("Tut"))
                 GameManager.Instance.tutManager.ParseTutQuery(content.Substring(5, 2));
             if (content.Contains("Outro"))
-                GameManager.Instance.outro.ShowOutro();
+                GameManager.Instance.outro.ShowOutro(story);
             content = string.Empty;
         }
         else

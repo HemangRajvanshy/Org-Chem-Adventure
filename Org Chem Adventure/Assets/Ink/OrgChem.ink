@@ -1,6 +1,6 @@
 INCLUDE OrgChem2.ink
 
-VAR money = 0
+VAR OrgChemLevel = 100
 
 LIST Expressio = neutral, happy, confused, distressed
 // DEBUG mode adds a few shortcuts - remember to set to false in release!
@@ -20,6 +20,14 @@ VAR DEBUG = false
 
 === function IncrementProgress ===
     ~return 1
+    
+=== function ChemLevelIncrease ===
+    <b>{~You got better at Organic Chemistry|Your Organic Chemistry level increased} </b>
+    ~ OrgChemLevel += 1 
+    
+=== function ChemLevelDecrease ===
+   <b> Your Organic Chemistry level decreased </b>
+    ~ OrgChemLevel -= 2
     
 === 1Knot === 
 //Letter to Mom
@@ -192,10 +200,12 @@ VAR DEBUG = false
     = wrong
         ~ Expression = confused
         <>, not ethanoic acid. Try again”
+        {ChemLevelDecrease()}
     -> ques
     
     = right
         ~ Expression = happy
+        {ChemLevelIncrease()}
     "Oh, you found it. Here” he said as he handed me the bottle and five pellets, which I figured were electrons.
     -> cont
   
@@ -500,6 +510,7 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
             
     - (win)
     __AudioSFX1
+        OrgChemLevel += 1
         You won the bet.
         ~ electrons = electrons + Bet*2
         
@@ -507,6 +518,7 @@ LIST Acids = __IMG21, __IMG22, __IMG23, __IMG24, __IMG25, __IMG26, __IMG27, __IM
         
     - (lose)
     __AudioSFX2
+        OrgChemLevel -= 1
         You lost the bet.
         ~ electrons = electrons - Bet
         -> cont    

@@ -253,31 +253,40 @@
     - (opts)
     *   __IMG31
     <b> That just made a chlorine molecule again. </b>
+        { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts
     *   __IMG32
         <b> You made a methyl radical </b>
+                { ChemLevelIncrease() }
     *   __IMG33
         <b> That just made a chlorine radical again. </b>
+            { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts
         
-    ~ Expression = neutral
-    -   This is going alright. I have got a methyl free radical. 
+    -   ~ Expression = neutral
+        This is going alright. I have got a methyl free radical. 
         Now what?
         
     -   (opts2)
         *   React it with a chlorine molecule.
             <b> You made chloromethane </b>
+            { ChemLevelIncrease() }
         *   React it with a methane molecule.
             <b> That just made a methane free radical again. </b>
+                { ChemLevelDecrease() }
+                    ~ Expression = confused
             -> opts2
         *   React it with another methyl radical.
             <b> That made Ethane.</b>
             Not very useful right now.
+                { ChemLevelDecrease() }
+                    ~ Expression = confused
             -> opts2
             
-    -   Right, so I have got chloromethane. I should be able to repeat the same process and substitute another Chlorine atom on it.
+    -   ~ Expression = neutral
+        Right, so I have got chloromethane. I should be able to repeat the same process and substitute another Chlorine atom on it.
     
     <b> You have a chlorine free radical. </b>
         What do I react it with?
@@ -286,37 +295,42 @@
     *   __IMG32 //methane
         <b> You made a methyl radical </b>
         That's not what I need. 
+            { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts3
     *   __IMG33 //Cl2
         <b> That just made a chlorine radical again. </b>
+            { ChemLevelDecrease() }
         ~ Expression = confused.
          -> opts3
     *   __IMG34 //chloromethane
         <b> You made a chloromethyl radical </b>
-    
-    ~ Expression = neutral
+            { ChemLevelIncrease() }
     -   Almost there!
-    
+        ~ Expression = neutral
+
     <b> You have a chloromethyl radical </b>
     
     - (opts4)
     *   [React it with a chlorine molecule]
         <b> You made dichloromethane </b>
-        
+        { ChemLevelIncrease() }
+    
     *   [React it with a methane molecule]
         <b> You made chloromethane again. </b>
+            { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts4
         
     *   [React it with a methyl radical]
         <b> You made chloroethane </b>
+            { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts4
     
     ~ Expression = happy
     
-    This wasn't so hard afterall.
+    -   This wasn't so hard afterall.
     
     *   [Continue]
 
@@ -333,8 +347,7 @@
     ~ Expression = neutral    
 
     -   I understood very quickly what the chief was trying to say. The people here were different. 
-        The light coming in through the reflector had almost
-        disappeared by the time Harold felt like he understood it.
+        The light coming in through the reflector had almost disappeared by the time Harold felt like he understood it.
         I copied the reaction mechanism from the Chief’s notebook into another notebook.  
     
     *   [Leave town hall]
@@ -347,11 +360,11 @@
     -   "Don’t give up just yet! You only tried for one day." Mr Walter said wildly waving his hands.
     ~ Expression = confused
     *  "What are you saying? Harold can make dichloromethane without me."
-    ~ Expression = neutral
+    ~ Expression = happy
     
     -   "What? Already?" Mr Walter said looking at Harold .
     Harold nodded slightly, without turning his head.
-
+    ~ Expression = neutral
     The chief was just as surprised to hear that I was ready to leave tomorrow.
     Nevertheless he asked the maid to have his own car ready and the driver informed to take me to the capital next morning. He told me a few things about the capital. 
     
@@ -363,7 +376,7 @@
         Mr. Walter wished me luck and gave me one of those birds. He said this one was a charm to keep travelers safe. The birds looked the same to me though. 
         I informed the chief about my departure and wished him good health. 
 
-    <b> The capital should have the information I am looking for. I told myself as the car sped through the northern town gate. </b>
+   
     
     -  __IncrementProgress()
     {DEBUG: 
@@ -373,7 +386,9 @@
 
 === 26Knot ===
 //In the capital
-#Imagew3
+# clear    #Imagew3
+    -    <b> The capital should have the information I am looking for. I told myself as the car sped through the northern town gate. </b>
+
     -   We reached the capital on the afternoon of the following day. Even though the car was relatively new, the mountainous terrain did not allow for higher speeds. 
         The car dropped me in front of the official guest house, where I was going to stay—thanks to a letter the chlorinator wrote for me. 
 
@@ -422,7 +437,7 @@
     
     -    "I don’t really know. They just appeared all over the city last week."
         I nodded as if that made sense to me. I certainly wasn’t very eager to go back to the room with just me and the green thing. 
-        I decided to start looking, 
+        I decided to start looking. 
     *    "Can I find the chief in the city hall over there?"[] I asked pointing in the general direction.
 
     -  __IncrementProgress()
@@ -440,7 +455,7 @@
     
     *   [Enter the room]
     
-    -   The room was full of all sorts of papers and books, and the assistant was drooped over one such piece of paper. He noticed me when I knocked at the now open door. 
+    -   The room was full of all sorts of papers and books, and the assistant was drooped over one such piece of paper. He noticed me when I knocked on the open door. 
     
     I gave him the letter I had received, explaining the situation. As he read through the letter, I noticed that there weren’t any of those nucleophiles in the city hall. 
     "Greg Minerva…"
@@ -474,6 +489,8 @@
         "The Governor must have called them given our situation, I don’t have access to the information though. I only know of one wizard, because they visited personally."
     *   "Where can I find him?" []I asked. The assistant shook his head.
 
+    __AudioBG0
+
     -    From the start of the journey, this was the first time I did not have a clear path ahead. 
     
     -   (opts)
@@ -485,7 +502,7 @@
         -> opts
     *   ->  
       
-        My best bet, I decided, was to go about the city looking for the wizard. 
+    -    My best bet, I decided, was to go about the city looking for the wizard. 
         I quickly realized how that wasn’t such a good idea either, given the much larger size of the city compared to the other towns.
     
     *   [Continue]
@@ -499,11 +516,16 @@
     
 === 30Knot ===
 //Finding Wizard
+    # clear
+    ~ Expression = neutral
+    
     -   I asked about the town for about 2 hours when one shopkeeper told me that the wizard just got rid of the nucleophile in his shop and that the wizard must be in one of the neighbouring shops.
+    
+    __AudioBG2
     
     -   "Stop! Can’t you see the close sign.", a woman shouted as I held the door half open. 
         The door jerked close before I could register what was going on.
-        I was trying to make sense out of what just transpired, when the door flung open and a dark skinned girl not much older than I was stepped out. 
+        I was trying to make sense out of what just transpired, when the door flung open and a dark skinned girl, not much older than I was, stepped out. 
         "Are you stupid? Couldn’t you even stop to see the closed sign? You almost stepped on the base..." she said.
     
     *   "I was looking for the wizard["]," I said plainly.
@@ -566,6 +588,9 @@
     
         "I think I got this," I said as we entered the next building. 
         "Don’t joke around." 
+        
+        __AudioBG3
+
         "Give me the base." 
 
         RXN5
@@ -575,12 +600,14 @@
         - (opts)
         *   [1]
         "What are you doing? the double bond goes towards the more substituted carbon."
+            { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts
         *   [2]
-        
+            { ChemLevelIncrease() }
         *   [3]
         "What are you doing? The double bond forms on the carbon to which the nucleophile was attached."
+                    { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts
         
@@ -602,13 +629,15 @@
     
     - (opts2)
         *   [1]
-        
+                    { ChemLevelIncrease() }
         *   [2]
         "What are you doing? I just told you to put the double bond on the less substituted carbon."
+                    { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts2
         *   [3]
         "What are you doing? The double bond forms on the carbon to which the nucleophile was attached."
+                    { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts2
         
@@ -644,7 +673,7 @@
     
 === 34Knot ===
 //The governors place
-    #Imagew6
+    # Imagew6 
     -   "You got rid of the nucleophiles already?", the governor asked.
         "Yes, uhm he…" 
     *   "Ren[."]," I said.
@@ -687,7 +716,7 @@
     
     *   [Continue]
     
-        "I volunteer for a mission to the other land", it was the wizard that spoke. This time it was me who exclaimed. 
+    -    "I volunteer for a mission to the other land", it was the wizard that spoke. This time it was me who exclaimed. 
     
     *    "I am going as well[."]," I said, with new found conviction.
         
@@ -697,6 +726,7 @@
         __AudioBG4
         
         The Governor cleared his throat, "I, the 27th Governor of the land of Organic Chemistry, give you, Mitsuna Firefly, the mission to investigate the cause of the recent nucleophilic attack."
+        ~ Expression = happy
         There was a pause.
         "I also appoint Ren Minerva as a wizard of the land and present him the task of supporting Mitsuna on this mission."
         "Is that alright?", he said in his normal voice.
@@ -704,7 +734,7 @@
         "Yes."
         
     *   "Alright."
-    
+        ~ Expression = neutral
     -   And so we were dismissed for the day.
     -  __IncrementProgress()
     {DEBUG: 
@@ -725,6 +755,8 @@
         she said and left before I could ask her anything.
     
     -   It was only evening then and so I decided to write a letter back home. It sounded more hopeful than it really was, but I decided to let it be. 
+    
+    *   [Continue]
     
     -  __IncrementProgress()
     {DEBUG: 

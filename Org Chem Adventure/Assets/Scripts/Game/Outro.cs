@@ -1,17 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Ink.Runtime;
 
 public class Outro : MonoBehaviour {
 
     public GameObject OutroObj;
     public GameObject FacebookThing;
 
+    public Text skilltext;
+
     public string androidAppUrl = "market://details?id=com.google.earth";
 
 
-    public void ShowOutro()
+    public void ShowOutro(Story story)
     {
+        int skillno = (int)story.variablesState["OrgChemLevel"];
+        if(skillno >= 105)
+        {
+            skilltext.text += " expert";
+        }
+        else if(skillno >= 101)
+        {
+            skilltext.text += " seasoned";
+        }
+        else if (skillno >= 97)
+        {
+            skilltext.text += " skilled";
+        }
+        else
+        {
+            skilltext.text += " rookie";
+        }
+
         StartCoroutine(DoOutro());
     }
 
