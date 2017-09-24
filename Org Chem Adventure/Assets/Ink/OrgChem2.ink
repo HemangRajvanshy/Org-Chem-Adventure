@@ -733,12 +733,22 @@
 
 === 37Knot ===
 //Next morning + end
-# Imagew9
+# Imagew9 # clear
     -   The conjugate sun was still behind the buildings as I stood in front of the town hall next morning. 
     *   "Why are you looking for him?"[] I asked. 
     -   "Are you ready?", she ignored the question. 
         I nodded with a sigh.
     *   "Let’s go."
-
+    -  __IncrementProgress()
+    {DEBUG: 
+            ->38Knot
+        - else: -> END
+    } -> DONE
+    
+=== 38Knot ===
+# Imagew0
+    
+  - __Outro
+    __AudioBG8
 -> END
 

@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Debug\MasterTest.cs" />
     <Compile Include="Assets\Scripts\Game\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game\Intro.cs" />
+    <Compile Include="Assets\Scripts\Game\Outro.cs" />
     <Compile Include="Assets\Scripts\Game\Player.cs" />
     <Compile Include="Assets\Scripts\Game\Settings\SettingsButton.cs" />
     <Compile Include="Assets\Scripts\Game\Settings\SettingsMenu.cs" />

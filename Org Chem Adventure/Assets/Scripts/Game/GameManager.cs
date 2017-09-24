@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour {
     public TutorialManager tutManager;
     public AudioManager Audio;
     public Intro intro;
+    public Outro outro;
     public SettingsMenu Settings;
     public Game game;
 
+    [HideInInspector]
     public Player player;
     private int ProgressIndex;
 
