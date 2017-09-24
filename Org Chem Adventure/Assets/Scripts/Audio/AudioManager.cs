@@ -13,6 +13,15 @@ public class AudioManager : MonoBehaviour
     public AudioSource BGM;
     public AudioSource Sfx;
 
+    private int currentBGM;
+
+    private void Start()
+    {
+        currentBGM = GameManager.Instance.player.SaveData.BGMNo;
+        if(currentBGM != -1)
+            ChangeBGM(currentBGM);
+    }
+
     public void ParseQuery(string s)
     {
         s = s.Substring(7, s.Length - 7);
@@ -35,10 +44,15 @@ public class AudioManager : MonoBehaviour
         BGM.Pause();
     }
 
-    public void ChangeBGM(int n)
+    public int GetCurrentBGM()
     {
-        StartCoroutine(SoundFade(n));
+        return currentBGM;
+    }
 
+    private void ChangeBGM(int n)
+    {
+        currentBGM = n;
+        StartCoroutine(SoundFade(n));
     }
 
     IEnumerator SoundFade(int n)
@@ -60,8 +74,6 @@ public class AudioManager : MonoBehaviour
                 BGM.volume -= Time.deltaTime * (0.2f);
             yield return new WaitForEndOfFrame();
         }
-
-
     }
 
     public bool Playing()

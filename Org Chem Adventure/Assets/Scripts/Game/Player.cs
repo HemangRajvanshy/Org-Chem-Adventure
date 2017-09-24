@@ -43,6 +43,8 @@ public class Player : MonoBehaviour {
 
         save.ProgressIndex = GameManager.Instance.GetProgress();
         save.Music = GameManager.Instance.Audio.Playing();
+        save.BGMNo = GameManager.Instance.Audio.GetCurrentBGM();
+        save.CurrentScene = GameManager.Instance.game.imageManager.GetActiveScene();
 
         formatter.Serialize(file, save);
         file.Close();
@@ -55,8 +57,9 @@ public class Player : MonoBehaviour {
         SaveData = new Save();
 
         SaveData.ProgressIndex = 0;
-
         SaveData.Music = true;
+        SaveData.BGMNo = -1;
+        SaveData.CurrentScene = -1;
 
         BinaryFormatter formatter = new BinaryFormatter();
 
@@ -94,4 +97,6 @@ public class Save
     public bool Music;
 
     public int ProgressIndex;
+    public int BGMNo;
+    public int CurrentScene;
 }

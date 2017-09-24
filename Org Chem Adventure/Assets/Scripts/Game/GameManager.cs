@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
     public SettingsMenu Settings;
     public Game game;
 
-    private Player player;
+    public Player player;
     private int ProgressIndex;
 
     private bool _paused = false;

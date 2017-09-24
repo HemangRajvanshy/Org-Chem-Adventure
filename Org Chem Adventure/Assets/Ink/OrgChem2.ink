@@ -649,16 +649,28 @@
     *   "Ren[."]," I said.
     
     -   "Ren helped me with the eliminations. In return he wanted me to let him meet you."
-    "You two saved the town. What can I help you with, Ren?"
-    "I wanted to ask about Greg Minerva, a wizard. Do you know where he is?"
-    As I said this, the wizard standing next to me exclaimed.
-    The Governor did not seem to notice and continued,
-    "Information on the location of wizards is classified. May I ask what your purpose is?"
-    "Greg Minerva is my father. I am looking for information on what happened to him that he did not return home for the last nine years."
-    The wizard made another exclamation, and silence followed it for what seemed like a minute.
-    "Very well, I will make this an exception.", the Governor said.
-    "Nine years ago, Greg stayed in the capital for about two months. He was clearly already a master wizard and I bestowed the title upon him. He volunteered for a mission to the other land and at some point we stopped receiving messages from him."
-    "The other land?" I asked.
+        "You two saved the town. What can I help you with, Ren?"
+    *   "I wanted to ask about Greg Minerva, a wizard.["] Do you know where he is?"
+    -   As I said this, the wizard standing next to me exclaimed.
+        The Governor did not seem to notice and continued,
+        "Information on the location of wizards is classified. May I ask what your purpose is?"
+        
+    *   [Truth]
+    
+    *   [Evade]
+        I couldn't think of anything reasonable to say. Besides, the letter I gave to the governor's assistant already deatiled the situation.
+        
+            
+    -    "Greg Minerva is my father. I am looking for information on what happened to him that he did not return home for the last nine years."
+    
+    -   The wizard made another exclamation, and silence followed it for what must have been a minute.
+        "Very well, I will make this an exception.", the Governor said.
+        "Nine years ago, Greg stayed in the capital for about two months. He was clearly already a master wizard and I bestowed the title upon him. He volunteered for a mission to the other land and at some point we stopped receiving messages from him."
+        
+    __AudioBG7
+    
+    *   "The other land?"[] I asked.
+    
     -  __IncrementProgress()
     {DEBUG: 
             ->35Knot
@@ -668,20 +680,31 @@
 
 === 35Knot ===
 //still at governer
-    "The dark land of organic chemistry. We suspect they are the ones that sent the nucleophiles to torment the capital."
+    -   "The dark land of organic chemistry. We suspect they are the ones that sent the nucleophiles to torment the capital."
+    
         That was a lot of information. What should be my next move? 
+    
+    *   [Continue]
+    
         "I volunteer for a mission to the other land", it was the wizard that spoke. This time it was me who exclaimed. 
-        "I am going as well." I said, with new found conviction.
+    
+    *    "I am going as well[."]," I said, with new found conviction.
         
-        It was the Governor’s turn to be speechless, he thought for a while,
-        "It’s true that we need someone to investigate the cause of this nucleophilic attack in more detail. " the Governor cleared his throat.
-        "I, the 27th Governor of the land of Organic Chemistry, give you, Mitsuna Firefly, the mission to investigate the cause of the recent nucleophilic attack."
+    -    It was the Governor’s turn to be speechless,
+        "It’s true that we need someone to investigate the cause of this nucleophilic attack in more detail." 
+        
+        __AudioBG4
+        
+        The Governor cleared his throat, "I, the 27th Governor of the land of Organic Chemistry, give you, Mitsuna Firefly, the mission to investigate the cause of the recent nucleophilic attack."
         There was a pause.
         "I also appoint Ren Minerva as a wizard of the land and present him the task of supporting Mitsuna on this mission."
         "Is that alright?", he said in his normal voice.
+        
         "Yes."
-        "Alright."
-        And so we were dismissed for the day.
+        
+    *   "Alright."
+    
+    -   And so we were dismissed for the day.
     -  __IncrementProgress()
     {DEBUG: 
             ->36Knot
@@ -690,13 +713,17 @@
     
 === 36Knot ===
 //Outside
-    We left the city hall and I was about to ask Mitsuna why she volunteered for the mission. I did not get that chance however,
-    "You are the son of Greg Minerva!" 
-    "Uh, ye.."
-    "I am looking for him as well. As such, that’s why I came to this city!"
-    "Wh..", she cut me off again.
-    "Hmph. Come right here tomorrow at sunrise. We’ll leave then."
-    And left before I could ask her why she was looking for dad.
+#Imagew2
+    __AudioBG6
+    -   We left the city hall and I was about to ask Mitsuna why she volunteered for the mission. I did not get that chance however,
+        "You are the son of Greg Minerva!" 
+    *   "Uh, ye[s"].."
+    -   "I am looking for him as well. As such, that’s why I came to this city!"
+    *   "Wh[y are you looking for him?]..", she cut me off again.
+    -   "Hmph. Come right here tomorrow at sunrise. We’ll leave then,"
+        she said and left before I could ask her anything.
+    
+    -   It was only evening then and so I decided to write a letter back home. It sounded more hopeful than it really was, but I decided to let it be. 
     
     -  __IncrementProgress()
     {DEBUG: 
@@ -706,7 +733,12 @@
 
 === 37Knot ===
 //Next morning + end
-    
-    
+# Imagew9
+    -   The conjugate sun was still behind the buildings as I stood in front of the town hall next morning. 
+    *   "Why are you looking for him?"[] I asked. 
+    -   "Are you ready?", she ignored the question. 
+        I nodded with a sigh.
+    *   "Let’s go."
+
 -> END
 

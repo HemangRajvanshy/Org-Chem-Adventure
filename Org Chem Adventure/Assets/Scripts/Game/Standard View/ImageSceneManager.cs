@@ -5,11 +5,6 @@ using UnityEngine;
 public class ImageSceneManager : MonoBehaviour
 {
     public List<ImageScene> ImageScenes;
-    public int S1;
-    public int S2;
-    public int S3;
-    public int S4;
-    public int S5;
 
     public Standardview PlayScreen;
     public AvatarManager avatar;
@@ -22,16 +17,11 @@ public class ImageSceneManager : MonoBehaviour
         //CurrentScene = ; Save the CurrentScene in player and retrieve that info from there.
         int prog = GameManager.Instance.GetProgress();
 
-        if (prog < S2)
-            CurrentScene = 1;
-        else if (prog < S3)
-            CurrentScene = 2;
-        else if (prog < S4)
-            CurrentScene = 3;
-        else if (prog < S5)
-            CurrentScene = 4;
+        CurrentScene = GameManager.Instance.player.SaveData.CurrentScene;
         // TODO
-        if (prog >= 2)
+        if (CurrentScene == -1)
+            CurrentScene = 0;
+        if (prog >= 2 && CurrentScene != -1)
             SetScene(CurrentScene);
     }
 
