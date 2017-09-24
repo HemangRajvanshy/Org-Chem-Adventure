@@ -10,7 +10,7 @@ public class Game : MonoBehaviour
     // The json compiled ink story
     public TextAsset storyJSON;
     // The ink runtime story object
-    private Story story;
+    public Story story;
 
     public ContentView ContentPrefab;
     public ContentView ImageContentPrefab;
@@ -38,6 +38,8 @@ public class Game : MonoBehaviour
         }
 
         story = new Story(storyJSON.text);
+
+        story.variablesState["OrgChemLevel"] = GameManager.Instance.player.SaveData.OrgChemLevel;
 
         if (GameManager.Instance.GetProgress() == 0)
             GameManager.Instance.DoIntro();

@@ -45,7 +45,10 @@ public class Player : MonoBehaviour {
         save.Music = GameManager.Instance.Audio.Playing();
         save.BGMNo = GameManager.Instance.Audio.GetCurrentBGM();
         save.CurrentScene = GameManager.Instance.game.imageManager.GetActiveScene();
-
+        if (GameManager.Instance.game.story != null)
+            save.OrgChemLevel = (int)GameManager.Instance.game.story.variablesState["OrgChemLevel"];
+        else
+            save.OrgChemLevel = 100;
         formatter.Serialize(file, save);
         file.Close();
     }
@@ -60,6 +63,7 @@ public class Player : MonoBehaviour {
         SaveData.Music = true;
         SaveData.BGMNo = -1;
         SaveData.CurrentScene = -1;
+        SaveData.OrgChemLevel = 100;
 
         BinaryFormatter formatter = new BinaryFormatter();
 
@@ -99,4 +103,6 @@ public class Save
     public int ProgressIndex;
     public int BGMNo;
     public int CurrentScene;
+
+    public int OrgChemLevel;
 }
