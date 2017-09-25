@@ -68,4 +68,4 @@ public class ContentManager : MonoBehaviour {
         ((RectTransform)transform).sizeDelta = new Vector2(0, layoutGroup.GetComponent<RectTransform>().sizeDelta.y - offset) ;
         scroll.normalizedPosition = new Vector2(0, 0);
     }
-}
+} 
