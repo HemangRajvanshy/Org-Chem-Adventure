@@ -598,14 +598,14 @@
         Uhm..Where do I make the double bond?
         
         - (opts)
-        *   [1]
+        *   [1st site]
         "What are you doing? the double bond goes towards the more substituted carbon."
             { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts
-        *   [2]
+        *   [2nd site]
             { ChemLevelIncrease() }
-        *   [3]
+        *   [3rd site]
         "What are you doing? The double bond forms on the carbon to which the nucleophile was attached."
                     { ChemLevelDecrease() }
         ~ Expression = confused
@@ -628,14 +628,14 @@
     RXN5
     
     - (opts2)
-        *   [1]
+        *   [1st site]
                     { ChemLevelIncrease() }
-        *   [2]
+        *   [2nd site]
         "What are you doing? I just told you to put the double bond on the less substituted carbon."
                     { ChemLevelDecrease() }
         ~ Expression = confused
         -> opts2
-        *   [3]
+        *   [3rd site]
         "What are you doing? The double bond forms on the carbon to which the nucleophile was attached."
                     { ChemLevelDecrease() }
         ~ Expression = confused
